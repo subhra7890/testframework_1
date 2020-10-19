@@ -74,7 +74,7 @@ public class MyClass {
 		List<WebElement> flightPrice=driver.findElements(By.xpath("//span[@class='ico20']"));
 		  System.out.println(flightPrice.size());
 		  /* to add the values in newly created list*/
-		  ArrayList<String> priceValue=new ArrayList<>();
+		  //ArrayList<String> priceValue=new ArrayList<>();
 //		  for(int i=0;i<flightPrice.size();i++)
 //		  {
 //			  String price1=flightPrice.get(i).getText();
@@ -82,7 +82,7 @@ public class MyClass {
 //			  priceValue.add(modifiedPrice1);
 //			  System.out.println(modifiedPrice1); 
 //		  } 
-		  int[] newArr=new int[priceValue.size()];
+		  int[] newArr=new int[flightPrice.size()];
 		  for(int i=0;i<newArr.length;i++)
 		  {
 			  String price1=flightPrice.get(i).getText().replaceAll(",","");
