@@ -1,0 +1,9 @@
+package testCases;
+
+import org.testng.annotations.Test;
+
+public class DemoTesr2 {
+  @Test
+  public void f() {
+  }
+}
