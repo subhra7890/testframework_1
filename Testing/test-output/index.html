@@ -51,7 +51,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\HP\AppData\Local\Temp\testng-eclipse--1976372770\testng-customsuite.xml</span>
+                    <span>C:\Users\HP\AppData\Local\Temp\testng-eclipse--692611070\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -93,7 +93,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">3 methods,   3 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -104,7 +104,17 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="testCases.DemoTest" class="method navigator-link" hash-for-method="launch">launch</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="testCases.HomePageTest" class="method navigator-link" hash-for-method="numberOfLinksInLeftSection">numberOfLinksInLeftSection</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="testCases.HomePageTest" class="method navigator-link" hash-for-method="numberOfLinksInRightSection">numberOfLinksInRightSection</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="testCases.HomePageTest" class="method navigator-link" hash-for-method="titleOfLinksRightSection">titleOfLinksRightSection</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -122,14 +132,28 @@
           <div class="suite-Default_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">testCases.DemoTest</span>
+              <span class="class-name">testCases.HomePageTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="launch">
-                  </a> <!-- launch -->
-                  <span class="method-name">launch</span>
+                  <a name="numberOfLinksInLeftSection">
+                  </a> <!-- numberOfLinksInLeftSection -->
+                  <span class="method-name">numberOfLinksInLeftSection</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="numberOfLinksInRightSection">
+                  </a> <!-- numberOfLinksInRightSection -->
+                  <span class="method-name">numberOfLinksInRightSection</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="titleOfLinksRightSection">
+                  </a> <!-- titleOfLinksRightSection -->
+                  <span class="method-name">titleOfLinksRightSection</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -137,7 +161,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\HP\AppData\Local\Temp\testng-eclipse--1976372770\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\HP\AppData\Local\Temp\testng-eclipse--692611070\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -146,8 +170,9 @@
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;testCases.DemoTest&quot;/&gt;
+      &lt;class name=&quot;pageObjectModel.HomePage&quot;/&gt;
       &lt;class name=&quot;resources.Base&quot;/&gt;
+      &lt;class name=&quot;testCases.HomePageTest&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -161,7 +186,7 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">Default test (2 classes)</span>
+                <span class="test-name">Default test (3 classes)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -187,16 +212,24 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(3);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'launch')
-data.setCell(0, 2, 'testCases.DemoTest')
-data.setCell(0, 3, 17671);
+data.setCell(0, 1, 'titleOfLinksRightSection')
+data.setCell(0, 2, 'testCases.HomePageTest')
+data.setCell(0, 3, 32092);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'numberOfLinksInLeftSection')
+data.setCell(1, 2, 'testCases.HomePageTest')
+data.setCell(1, 3, 577);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'numberOfLinksInRightSection')
+data.setCell(2, 2, 'testCases.HomePageTest')
+data.setCell(2, 3, 563);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 17 seconds</span>
+              <span class="suite-total-time">Total running time: 33 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -222,15 +255,27 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">testCases.DemoTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">testCases.HomePageTest</div> <!-- chronological-class-name -->
               <div class="configuration-test before">
                 <span class="method-name">initialize</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-test before -->
               <div class="test-method">
-                <span class="method-name">launch</span>
-                <span class="method-start">20488 ms</span>
+                <span class="method-name">numberOfLinksInLeftSection</span>
+                <span class="method-start">25895 ms</span>
               </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">numberOfLinksInRightSection</span>
+                <span class="method-start">26476 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">titleOfLinksRightSection</span>
+                <span class="method-start">27041 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-test after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">59141 ms</span>
+              </div> <!-- configuration-test after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->
