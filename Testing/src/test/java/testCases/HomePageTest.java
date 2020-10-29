@@ -68,6 +68,12 @@ public class HomePageTest extends Base{
 			{
 			String click=Keys.chord(Keys.CONTROL,Keys.ENTER);
 			links.get(i).sendKeys(click);
+//			  links.get(i).click();
+//			  System.out.println(driver.getTitle());
+//			  driver.navigate().back();
+//			  driver.navigate().refresh(); 
+//			  rightElement=driver.findElement(By.xpath( "//div[contains(@class,'marginT5')]"));
+//			  links=rightElement.findElements(By.tagName("a"));	
 			}
 		}
 		ArrayList<Boolean> actualValues=new ArrayList<>(Arrays.asList(true,true,true,true,true,true,true,true));
@@ -90,6 +96,18 @@ public class HomePageTest extends Base{
 			}
 		}
 		Assert.assertEquals(actualValues, values);
+//		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+//		ArrayList<Boolean> values=new ArrayList<>();
+//		for(int i=1;i<tabs.size();i++)
+//		{
+//			driver.switchTo().window(tabs.get(i));
+//			System.out.println(driver.getTitle());
+//			String title=driver.getTitle();
+//			if(title.contains("Cab")|| title.contains("IRCTC") || title.contains("Gostays") || title.contains("Hotel"))
+//			{
+//				values.add(true);
+//			}
+//		}
 	}
 	
 	@AfterTest
