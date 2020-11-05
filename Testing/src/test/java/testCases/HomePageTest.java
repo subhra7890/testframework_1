@@ -18,6 +18,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import pageObjectModel.FlightSearch;
 import pageObjectModel.HomePage;
 import resources.Base;
 
@@ -169,12 +170,40 @@ public class HomePageTest extends Base{
 		Assert.assertEquals(expectedDefault, actualDefault);
 		hp.adult().click();
 		hp.adultClose().click();
-		hp.flightSearch();
+		FlightSearch fp=hp.flightSearch();
 		WebDriverWait wait=new WebDriverWait(driver, 40);
-		wait.until(ExpectedConditions.visibilityOf(hp.flightSearch().afterSearch()));
-		Assert.assertTrue(hp.flightSearch().afterSearch().isDisplayed());
-		Assert.assertEquals(true,hp.flightSearch().sourceCity().getText().contains("Kolkata"));
-		Assert.assertEquals(true,hp.flightSearch().destinationCity().getText().contains("Delhi"));
+		wait.until(ExpectedConditions.visibilityOf(fp.afterSearch()));
+		Assert.assertTrue(fp.afterSearch().isDisplayed());
+		Assert.assertEquals(true,fp.sourceCity().getText().contains("Kolkata"));
+		Assert.assertEquals(true,fp.destinationCity().getText().contains("Delhi"));
+	}
+	
+	@Test(dependsOnMethods = {"validateOfOneRoundTrip"})
+	public void departureTime_Stops()
+	{
+		int actual=4;
+		FlightSearch fp=new FlightSearch();
+		List<WebElement> elements=fp.departureTime().findElements(By.tagName("label"));
+		Assert.assertEquals(actual, elements.size());
+		ArrayList<String> actualList=new ArrayList<>(Arrays.asList("4am - 11am","11am - 4pm","4pm - 9pm","9pm - 4am"));
+		ArrayList<String> expectedList=new ArrayList<>();
+		for (WebElement element : elements) {
+//			System.out.println(element.getAttribute("value"));
+//			System.out.println(element.getText());
+			expectedList.add(element.getText());
+		}
+		for (String string : expectedList) {
+			System.out.println(string);
+		}
+		Assert.assertEquals(actualList, expectedList);
+		List<WebElement> stopsNumber=fp.stops().findElements(By.tagName("label"));
+		ArrayList<String> actualStops=new ArrayList<>(Arrays.asList("0 Stop","1 Stops","2 Stops","3 Stops"));
+		ArrayList<String> expectedStops=new ArrayList<>();
+		Assert.assertEquals(actual,stopsNumber.size());
+		for (WebElement webElement : stopsNumber) {
+			expectedStops.add(webElement.getText());
+		}
+		Assert.assertEquals(actualStops, expectedStops);
 	}
 	
 	@AfterTest

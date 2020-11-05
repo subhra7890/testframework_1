@@ -10,6 +10,9 @@ public class FlightSearch extends Base{
 	By afterSearch=By.xpath("//div[@class='fl width100 flexCol']");
 	By sourceCity=By.xpath("(//span[@class='db textOverflow'])[1]/child::span[2]");
 	By destinationCity=By.xpath("(//span[@class='db textOverflow'])[2]/child::span[2]");
+	By departureTime=By.xpath("(//div[contains(@class,'flexWrap')])[1]");
+	By stops=By.xpath("(//div[contains(@class,'flexWrap')])[2]");
+	
 	
 	public WebElement afterSearch()
 	{
@@ -24,6 +27,16 @@ public class FlightSearch extends Base{
 	public WebElement destinationCity()
 	{
 		return driver.findElement(destinationCity);
+	}
+	
+	public WebElement departureTime()
+	{
+		return driver.findElement(departureTime);
+	}
+	
+	public WebElement stops()
+	{
+		return driver.findElement(stops);
 	}
 
 }

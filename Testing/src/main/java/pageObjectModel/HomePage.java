@@ -5,6 +5,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -68,8 +69,15 @@ public class HomePage extends Base{
 	public FlightSearch flightSearch()
 	{
 		driver.findElement(search).click();
-		FlightSearch fp=new FlightSearch();
-		return fp;
+		try {
+			FlightSearch fp=new FlightSearch();
+			return fp;
+		} catch (StaleElementReferenceException e) {
+			// TODO: handle exception
+			FlightSearch fp1=new FlightSearch();
+			return fp1;
+		}
+		
 	}
 	
 	public WebElement errorMsg()
