@@ -17,10 +17,12 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import pageObjectModel.FlightSearch;
 import pageObjectModel.HomePage;
 import resources.Base;
+import resources.Reuse;
 
 public class HomePageTest extends Base{
 	@BeforeTest
@@ -67,30 +69,14 @@ public class HomePageTest extends Base{
 	{
 		HomePage hp=new HomePage();
 		List<WebElement> links=hp.rightHeaderSection().findElements(By.tagName("a"));
-		try {
-			WebDriverWait wait=new WebDriverWait(driver, 50);
-			wait.until(ExpectedConditions.visibilityOf(hp.container()));
-			if(hp.container().isDisplayed())
-			{
-				//System.out.println("element is visible");
-			hp.containerClose().click();
-			}
-		} catch (Exception e) {
-			// TODO: handle exception
-			//System.out.println(e.getMessage());
-		}
+		Reuse re=new Reuse();
+		re.exceptionHandling();
 		for(int i=1;i<links.size();i++)
 		{
 			if(links.get(i).getText().isEmpty()==false)
 			{
 			String click=Keys.chord(Keys.CONTROL,Keys.ENTER);
 			links.get(i).sendKeys(click);
-//			  links.get(i).click();
-//			  System.out.println(driver.getTitle());
-//			  driver.navigate().back();
-//			  driver.navigate().refresh(); 
-//			  rightElement=driver.findElement(By.xpath( "//div[contains(@class,'marginT5')]"));
-//			  links=rightElement.findElements(By.tagName("a"));	
 			}
 		}
 		ArrayList<Boolean> actualValues=new ArrayList<>(Arrays.asList(true,true,true,true,true,true,true,true));
@@ -149,7 +135,7 @@ public class HomePageTest extends Base{
 		
 	}
 	
-	@Test
+	@Test(dependsOnMethods = {"oneRoundTripWithoutDepDate"})
 	public void validateOfOneRoundTrip() throws InterruptedException
 	{
 		HomePage hp=new HomePage();
@@ -164,7 +150,9 @@ public class HomePageTest extends Base{
 		hp.departureDate().click();
 		hp.departureDateSelection();
 		hp.traveller().click();
-		Select s=new Select(hp.classSelection());
+		Reuse re=new Reuse();
+		//Select s=new Select(hp.classSelection());
+		Select s=re.select(hp.classSelection());
 		String expectedDefault="Economy";
 		String actualDefault=s.getFirstSelectedOption().getText();
 		Assert.assertEquals(expectedDefault, actualDefault);
@@ -179,31 +167,73 @@ public class HomePageTest extends Base{
 	}
 	
 	@Test(dependsOnMethods = {"validateOfOneRoundTrip"})
-	public void departureTime_Stops()
+	public void departureTime_Stops_Airlines()
 	{
 		int actual=4;
 		FlightSearch fp=new FlightSearch();
-		List<WebElement> elements=fp.departureTime().findElements(By.tagName("label"));
-		Assert.assertEquals(actual, elements.size());
+		Reuse re=new Reuse();
+		//List<WebElement> elements=fp.departureTime().findElements(By.tagName("label"));
+		Assert.assertEquals(actual, re.sizeOfList(fp.departureTime(), "label"));
 		ArrayList<String> actualList=new ArrayList<>(Arrays.asList("4am - 11am","11am - 4pm","4pm - 9pm","9pm - 4am"));
-		ArrayList<String> expectedList=new ArrayList<>();
-		for (WebElement element : elements) {
-//			System.out.println(element.getAttribute("value"));
-//			System.out.println(element.getText());
-			expectedList.add(element.getText());
-		}
-		for (String string : expectedList) {
-			System.out.println(string);
-		}
+		ArrayList<String> expectedList=re.addElements(fp.departureTime(),"label");
 		Assert.assertEquals(actualList, expectedList);
-		List<WebElement> stopsNumber=fp.stops().findElements(By.tagName("label"));
+		//List<WebElement> stopsNumber=fp.stops().findElements(By.tagName("label"));
 		ArrayList<String> actualStops=new ArrayList<>(Arrays.asList("0 Stop","1 Stops","2 Stops","3 Stops"));
-		ArrayList<String> expectedStops=new ArrayList<>();
-		Assert.assertEquals(actual,stopsNumber.size());
-		for (WebElement webElement : stopsNumber) {
-			expectedStops.add(webElement.getText());
-		}
+		ArrayList<String> expectedStops=re.addElements(fp.stops(),"label");
+		Assert.assertEquals(actual,re.sizeOfList(fp.stops(),"label"));
 		Assert.assertEquals(actualStops, expectedStops);
+		Assert.assertTrue(fp.onwardPrice().isDisplayed());
+		Assert.assertTrue(fp.onwardDuration().isDisplayed());
+		//List<WebElement> airLinesNames=fp.airLines().findElements(By.tagName("label"));
+		//ArrayList<String> expectedAirLine=re.addElements(fp.airLines(),"label");
+		int actualCount=6;
+		SoftAssert soft=new SoftAssert();
+		soft.assertEquals(actualCount, re.sizeOfList(fp.airLines(),"label"));
+	}
+	
+	@Test(dependsOnMethods = {"departureTime_Stops_Airlines"})
+	public void ValidateFilterResult()
+	{
+		String actualAirLine="Air India";
+		String actualSource="Kolkata";
+		String actualDestination="Delhi";
+		String actualTime="4am - 11am";
+		int actual=4;
+		ArrayList<String> actualList=new ArrayList<>(Arrays.asList("FLIGHT INFORMATION","FARE DETAILS","BAGGAGE RULES","CANCELLATION RULES"));
+		FlightSearch fp=new FlightSearch();
+		Reuse re=new Reuse();
+		re.applyFilter(fp.departureTime(),"label","4am - 11am");
+		re.applyFilter(fp.stops(),"label","1 Stops");
+		re.applyFilter(fp.airLines(),"label","Air India");
+		List<WebElement> filterResult=fp.filterResult();
+		for(int i=0;i<filterResult.size();i++)
+		{
+			String expectedAirLine=fp.airLineName(i+1).getText();
+			Assert.assertEquals(actualAirLine, expectedAirLine);
+			String expectedSource=fp.Station((2*i)+1).getText();
+			System.out.println(expectedSource);
+			Assert.assertTrue(expectedSource.contains(actualSource));
+			String expectedDestination=fp.Station((2*i)+2).getText();
+			System.out.println(expectedDestination);
+			Assert.assertTrue(expectedDestination.contains(actualDestination));
+			String[] time=fp.resultDepartureTime((2*i)+1).getText().split(":");
+			String expectedTime=time[0];
+			System.out.println(expectedTime);
+			Assert.assertTrue(re.compariosn(actualTime, expectedTime));
+			fp.flightDetails(i+1).click();
+			ArrayList<String> expectedList=re.addElements(fp.flightDetailsBar(),"span");
+			Assert.assertEquals(actual, re.sizeOfList(fp.flightDetailsBar(),"span"));
+			Assert.assertEquals(actualList, expectedList);
+			Assert.assertTrue(fp.flightInformation().isDisplayed());
+			fp.fareDetails(i+1).click();
+			Assert.assertTrue(fp.fareDetailsWindow().isDisplayed());
+			fp.baggage(i+1).click();
+			Assert.assertTrue(fp.baggageWindow().isDisplayed());
+			fp.cancellation(i+1).click();
+			Assert.assertTrue(fp.cancelWindow().isDisplayed());
+			Assert.assertEquals("Goibibo Fee",fp.companyName().getText());
+			Assert.assertEquals("300",fp.cancellationFee().getText());
+		}	
 	}
 	
 	@AfterTest

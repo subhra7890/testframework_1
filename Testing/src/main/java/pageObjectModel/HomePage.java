@@ -172,7 +172,7 @@ public class HomePage extends Base{
 		for(int i=0;i<daysList.size();i++)
 		{
 			String[] value=daysList.get(i).getAttribute("aria-label").split(" ");
-			if(value[2].equalsIgnoreCase("11"))
+			if(value[2].equalsIgnoreCase("19"))
 			{
 				daysList.get(i).click();
 				break;
