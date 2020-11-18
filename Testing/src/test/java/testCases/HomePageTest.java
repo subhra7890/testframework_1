@@ -2,6 +2,7 @@ package testCases;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -211,14 +212,11 @@ public class HomePageTest extends Base{
 			String expectedAirLine=fp.airLineName(i+1).getText();
 			Assert.assertEquals(actualAirLine, expectedAirLine);
 			String expectedSource=fp.Station((2*i)+1).getText();
-			System.out.println(expectedSource);
 			Assert.assertTrue(expectedSource.contains(actualSource));
 			String expectedDestination=fp.Station((2*i)+2).getText();
-			System.out.println(expectedDestination);
 			Assert.assertTrue(expectedDestination.contains(actualDestination));
 			String[] time=fp.resultDepartureTime((2*i)+1).getText().split(":");
 			String expectedTime=time[0];
-			System.out.println(expectedTime);
 			Assert.assertTrue(re.compariosn(actualTime, expectedTime));
 			fp.flightDetails(i+1).click();
 			ArrayList<String> expectedList=re.addElements(fp.flightDetailsBar(),"span");
@@ -235,6 +233,35 @@ public class HomePageTest extends Base{
 			Assert.assertEquals("300",fp.cancellationFee().getText());
 		}	
 	}
+	
+	@Test(dependsOnMethods = {"ValidateFilterResult"})
+	public void resetSortingPrice()
+	{
+		FlightSearch fp=new FlightSearch();
+		fp.reset().click();
+		Reuse re=new Reuse();
+		Assert.assertFalse(re.statusOfLabel(fp.departureTime(), "label","4am - 11am"));
+		Assert.assertFalse(re.statusOfLabel(fp.stops(),"label","1 Stops"));
+		Assert.assertFalse(fp.flightOptions("Air India").isSelected());
+		fp.priceClick().click();
+		List<WebElement> filterResult=fp.filterResult();
+		ArrayList<Integer> priceList=new ArrayList<>();
+		for(int i=0;i<filterResult.size();i++)
+		{
+			String price=fp.price(i+1).getText().replaceAll(",","");
+			int iPrice=Integer.parseInt(price);
+			priceList.add(iPrice);
+		}
+		ArrayList<Integer> copiedList=new ArrayList<>();
+		for (Integer integer : priceList) {
+			copiedList.add(integer);
+		}
+		Collections.sort(copiedList);
+		Collections.reverse(copiedList);
+		Assert.assertEquals(priceList, copiedList);		
+	}
+	
+	
 	
 	@AfterTest
 	public void tearDown() {

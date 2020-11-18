@@ -107,6 +107,19 @@ public class Reuse extends Base{
 		
 	}
 	
+	public boolean statusOfLabel(WebElement element,String label,String text)
+	{
+		boolean flag=true;
+		List<WebElement> elements = element.findElements(By.tagName(label));
+		for (WebElement webElement : elements) {
+			if (webElement.getText().equalsIgnoreCase(text)) {
+				flag=webElement.isSelected();
+				break;
+			}
+		}		
+		return flag;
+	}
+	
 	
 
 }

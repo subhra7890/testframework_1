@@ -25,6 +25,8 @@ public class FlightSearch extends Base{
 	By cancelWindow=By.xpath("//div[@id='fltFareRules']");
 	By companyName=By.xpath("//div[text()='Cancellation Charges']/following::div[1]/span");
 	By cancellationFee=By.xpath("//span[text()='Goibibo Fee']/following::span[1]");
+	By reset=By.xpath("//span[text()='Reset All']");
+	By priceClick=By.xpath("//li[@id='PRICE']");
 	private String airLineName="(//div[@class='dF width100 alignItemsCenter'])";
 	private String station="(//span[@class='db textOverflow'])";
 	private String price="(//span[@data-cy='finalPrice'])";
@@ -169,6 +171,22 @@ public class FlightSearch extends Base{
 	public WebElement cancellationFee()
 	{
 		return driver.findElement(cancellationFee);
+	}
+	
+	public WebElement reset()
+	{
+		return driver.findElement(reset);
+	}
+	
+	public WebElement flightOptions(String flight)
+	{
+		String element="//div[@id='"+flight+"']";
+		return driver.findElement(By.xpath(element));
+	}
+	
+	public WebElement priceClick()
+	{
+		return driver.findElement(priceClick);
 	}
 
 }
