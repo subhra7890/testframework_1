@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -82,10 +83,9 @@ public class Reuse extends Base{
 		List<WebElement> elements=element.findElements(By.tagName(tagName));
 		ArrayList<String> expectedList=new ArrayList<>();
 		for (WebElement listElement : elements) {
-			expectedList.add(listElement.getText());		
+				expectedList.add(listElement.getText());			
 		}
-		return expectedList;
-		
+		return expectedList;		
 	}
 	
 	public int sizeOfList(WebElement element,String tagName)
@@ -118,6 +118,12 @@ public class Reuse extends Base{
 			}
 		}		
 		return flag;
+	}
+	
+	public void scrollDown(WebElement element)
+	{
+		JavascriptExecutor js2=(JavascriptExecutor) driver;
+		js2.executeScript("arguments[0].scrollIntoView();", element);
 	}
 	
 	

@@ -20,6 +20,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import pageObjectModel.BookingDetail;
 import pageObjectModel.FlightSearch;
 import pageObjectModel.HomePage;
 import resources.Base;
@@ -259,6 +260,49 @@ public class HomePageTest extends Base{
 		Collections.sort(copiedList);
 		Collections.reverse(copiedList);
 		Assert.assertEquals(priceList, copiedList);		
+	}
+	
+	@Test(dependsOnMethods = {"resetSortingPrice"})
+	public void flightBooking()
+	{
+		FlightSearch fp=new FlightSearch();
+		fp.priceClick().click();
+		Reuse re=new Reuse();
+		BookingDetail bd;
+		String offerMsg="Congrats! Promo Discount has been applied. Now use your Axis Bank card only on the payment page to avail 10X Reward Points.";
+		String promoMsg="Offer not valid on this PromoCode";
+		String errorMsg="ERROR:\n"
+				+ "Please select one of the options in Travel Protection";
+		if(fp.bookText().getAttribute("value").equalsIgnoreCase("VIEW FARES"))
+		{
+			bd=fp.bookUnderFare();
+		}
+		else
+		{
+			bd=fp.book();
+		}
+		Assert.assertTrue(bd.fareDetails().isDisplayed());
+		ArrayList<String> actualList=new ArrayList<String>(Arrays.asList("GOBOB","GOHDFC","GOTRAVEL","FLYDOM","GOAXIS10X"));
+		ArrayList<String> expectedList=new ArrayList<>();
+		for (WebElement element : bd.offersList()) {
+			expectedList.add(element.findElement(By.tagName("input")).getAttribute("value"));
+		}
+		System.out.println("expected list size is :"+expectedList.size());
+		SoftAssert soft=new SoftAssert();
+		//Assert.assertEquals(actualList, expectedList);
+		soft.assertEquals(actualList, expectedList);
+		bd.selectOffer("GOAXIS10X").click();
+		Assert.assertTrue(bd.alertText().isDisplayed(),"offer value is selected");
+		Assert.assertTrue(bd.alertText().getText().contains(offerMsg),"offer msg is validated");
+		bd.alertClick().click();
+		bd.promo().sendKeys("123456");
+		bd.promoApply().click();
+		Assert.assertTrue(bd.alertText().isDisplayed(),"clicked successfuly on promo apply");
+		Assert.assertTrue(bd.alertText().getText().contains(promoMsg), "promo msg is validated");
+		bd.alertClick().click();
+		re.scrollDown(bd.proceed());
+		bd.proceed().click();
+		Assert.assertTrue(bd.errorMsg().getText().equalsIgnoreCase(errorMsg));	
 	}
 	
 	
