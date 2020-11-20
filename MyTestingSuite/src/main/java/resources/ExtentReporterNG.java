@@ -1,4 +1,4 @@
-package Automation;
+package resources;
 
 import java.io.File;
 import java.util.Calendar;
@@ -17,8 +17,8 @@ public class ExtentReporterNG implements IReporter {
 	public static ExtentReports extentReportGenerator() {
 		String path= System.getProperty("user.dir")+"\\reports\\index.html";
 		ExtentSparkReporter reporter = new ExtentSparkReporter(path);
-		reporter.config().setReportName("GoIbibo Test Result");
-		reporter.config().setDocumentTitle("GO IBIBO TESTS");
+		reporter.config().setReportName("****************GoIbibo Test Reports*****************");
+		reporter.config().setDocumentTitle("GOIBIBO TEST SUITE-QA AUTOMATION");
 		extent = new ExtentReports();
 		extent.attachReporter(reporter);
 		extent.setSystemInfo("TestTeam", "Automation QA");

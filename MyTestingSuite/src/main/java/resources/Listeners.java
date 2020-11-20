@@ -1,4 +1,4 @@
-package Automation;
+package resources;
 
 import java.io.IOException;
 

@@ -1,4 +1,4 @@
-package Automation;
+package resources;
 
 
 import java.io.File;
@@ -22,7 +22,7 @@ public class base {
 	public WebDriver initializeDriver() throws IOException {
 		
 		Properties prop = new Properties();
-		FileInputStream fis =new FileInputStream("F:\\Eclipse_Workspace\\MyTestingSuite\\src\\main\\java\\Automation\\data.properties");
+		FileInputStream fis =new FileInputStream("F:\\data\\testframework_1\\MyTestingSuite\\src\\main\\java\\resources\\data.properties");
 		
 		prop.load(fis);
 		String browserName=prop.getProperty("browser");

@@ -1,60 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" ignored="0" total="7" passed="6">
+<testng-results skipped="0" failed="4" ignored="0" total="7" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="27262" started-at="2020-11-16T22:16:31 IST" finished-at="2020-11-16T22:16:58 IST">
+  <suite name="Suite" duration-ms="55606" started-at="2020-11-20T21:56:45 IST" finished-at="2020-11-20T21:57:41 IST">
     <groups>
     </groups>
-    <test name="Test" duration-ms="27262" started-at="2020-11-16T22:16:31 IST" finished-at="2020-11-16T22:16:58 IST">
-      <class name="Automation.HomePage">
-        <test-method status="PASS" signature="initialize()[pri:1, instance:Automation.HomePage@5ccddd20]" name="initialize" duration-ms="4654" started-at="2020-11-16T22:16:31 IST" finished-at="2020-11-16T22:16:36 IST">
+    <test name="Test" duration-ms="55606" started-at="2020-11-20T21:56:45 IST" finished-at="2020-11-20T21:57:41 IST">
+      <class name="Automation.IbiboBasicTestsSteps">
+        <test-method status="PASS" signature="initialize()[pri:1, instance:Automation.IbiboBasicTestsSteps@3c22fc4c]" name="initialize" duration-ms="18848" started-at="2020-11-20T21:56:45 IST" finished-at="2020-11-20T21:57:04 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initialize -->
-        <test-method status="PASS" signature="openHomePage()[pri:2, instance:Automation.HomePage@5ccddd20]" name="openHomePage" duration-ms="8115" started-at="2020-11-16T22:16:36 IST" finished-at="2020-11-16T22:16:44 IST">
+        <test-method status="PASS" signature="openHomePage()[pri:2, instance:Automation.IbiboBasicTestsSteps@3c22fc4c]" name="openHomePage" duration-ms="25880" started-at="2020-11-20T21:57:04 IST" finished-at="2020-11-20T21:57:30 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openHomePage -->
-        <test-method status="PASS" signature="getTitleOfPage()[pri:3, instance:Automation.HomePage@5ccddd20]" name="getTitleOfPage" duration-ms="29" started-at="2020-11-16T22:16:44 IST" finished-at="2020-11-16T22:16:44 IST">
+        <test-method status="PASS" signature="getTitleOfPage()[pri:3, instance:Automation.IbiboBasicTestsSteps@3c22fc4c]" name="getTitleOfPage" duration-ms="609" started-at="2020-11-20T21:57:30 IST" finished-at="2020-11-20T21:57:31 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getTitleOfPage -->
-        <test-method status="PASS" signature="validateLogoDisplayed()[pri:4, instance:Automation.HomePage@5ccddd20]" name="validateLogoDisplayed" duration-ms="382" started-at="2020-11-16T22:16:44 IST" finished-at="2020-11-16T22:16:44 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- validateLogoDisplayed -->
-        <test-method status="FAIL" signature="checkHotelLink()[pri:5, instance:Automation.HomePage@5ccddd20]" name="checkHotelLink" duration-ms="6656" started-at="2020-11-16T22:16:44 IST" finished-at="2020-11-16T22:16:51 IST">
-          <exception class="org.openqa.selenium.ElementClickInterceptedException">
-            <message>
-              <![CDATA[element click intercepted: Element <button data-testid="searchHotelBtn" class="dwebCommonstyles__ButtonBase-sc-112ty3f-9 SearchBlockUIstyles__SearchButtonAutoSuggest-fity7j-13 bdisym ekQIGU">...</button> is not clickable at point (454, 501). Other element would receive the click: <li role="option" id="downshift-1-item-2" class="HomePageAutosuggeststyles__SearchListItem-sc-1v6s32j-2 eikFvD">...</li>
-  (Session info: chrome=86.0.4240.193)
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'LAPTOP-G1AJ66R1', ip: '192.168.43.113', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_212'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 86.0.4240.193, chrome: {chromedriverVersion: 86.0.4240.22 (398b0743353ff..., userDataDir: C:\Users\91970\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:56465}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
-Session ID: 01781a8334dbfeb63d203bc449ea3f9f]]>
-            </message>
+        <test-method status="FAIL" signature="validateLogoDisplayed()[pri:4, instance:Automation.IbiboBasicTestsSteps@3c22fc4c]" name="validateLogoDisplayed" duration-ms="1" started-at="2020-11-20T21:57:31 IST" finished-at="2020-11-20T21:57:31 IST">
+          <exception class="java.lang.NullPointerException">
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <button data-testid="searchHotelBtn" class="dwebCommonstyles__ButtonBase-sc-112ty3f-9 SearchBlockUIstyles__SearchButtonAutoSuggest-fity7j-13 bdisym ekQIGU">...</button> is not clickable at point (454, 501). Other element would receive the click: <li role="option" id="downshift-1-item-2" class="HomePageAutosuggeststyles__SearchListItem-sc-1v6s32j-2 eikFvD">...</li>
-  (Session info: chrome=86.0.4240.193)
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'LAPTOP-G1AJ66R1', ip: '192.168.43.113', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_212'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 86.0.4240.193, chrome: {chromedriverVersion: 86.0.4240.22 (398b0743353ff..., userDataDir: C:\Users\91970\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:56465}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
-Session ID: 01781a8334dbfeb63d203bc449ea3f9f
-at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
-at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
-at Automation.HomePage.checkHotelLink(HomePage.java:85)
+              <![CDATA[java.lang.NullPointerException
+at pageObjects.HomePageObjects.getGoibiboLogo(HomePageObjects.java:24)
+at Automation.IbiboBasicTestsSteps.validateLogoDisplayed(IbiboBasicTestsSteps.java:64)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -85,23 +55,135 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validateLogoDisplayed -->
+        <test-method status="FAIL" signature="checkHotelLink()[pri:5, instance:Automation.IbiboBasicTestsSteps@3c22fc4c]" name="checkHotelLink" duration-ms="2" started-at="2020-11-20T21:57:34 IST" finished-at="2020-11-20T21:57:34 IST">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+at pageObjects.HomePageObjects.getHotelsMenuLink(HomePageObjects.java:27)
+at Automation.IbiboBasicTestsSteps.checkHotelLink(IbiboBasicTestsSteps.java:74)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:132)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:599)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:174)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:822)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:147)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.util.ArrayList.forEach(ArrayList.java:1257)
+at org.testng.TestRunner.privateRun(TestRunner.java:764)
+at org.testng.TestRunner.run(TestRunner.java:585)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1218)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
+at org.testng.TestNG.runSuites(TestNG.java:1069)
+at org.testng.TestNG.run(TestNG.java:1037)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkHotelLink -->
-        <test-method status="PASS" signature="checkRoundTrip()[pri:6, instance:Automation.HomePage@5ccddd20]" name="checkRoundTrip" duration-ms="2903" started-at="2020-11-16T22:16:52 IST" finished-at="2020-11-16T22:16:55 IST">
+        <test-method status="FAIL" signature="checkRoundTrip()[pri:6, instance:Automation.IbiboBasicTestsSteps@3c22fc4c]" name="checkRoundTrip" duration-ms="4266" started-at="2020-11-20T21:57:35 IST" finished-at="2020-11-20T21:57:39 IST">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+at pageObjects.HomePageObjects.getRoundTripOption(HomePageObjects.java:30)
+at Automation.IbiboBasicTestsSteps.checkRoundTrip(IbiboBasicTestsSteps.java:94)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:132)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:599)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:174)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:822)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:147)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.util.ArrayList.forEach(ArrayList.java:1257)
+at org.testng.TestRunner.privateRun(TestRunner.java:764)
+at org.testng.TestRunner.run(TestRunner.java:585)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1218)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
+at org.testng.TestNG.runSuites(TestNG.java:1069)
+at org.testng.TestNG.run(TestNG.java:1037)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkRoundTrip -->
-        <test-method status="PASS" signature="checkCablink()[pri:7, instance:Automation.HomePage@5ccddd20]" name="checkCablink" duration-ms="3614" started-at="2020-11-16T22:16:55 IST" finished-at="2020-11-16T22:16:58 IST">
+        <test-method status="FAIL" signature="checkCablink()[pri:7, instance:Automation.IbiboBasicTestsSteps@3c22fc4c]" name="checkCablink" duration-ms="0" started-at="2020-11-20T21:57:40 IST" finished-at="2020-11-20T21:57:40 IST">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+at pageObjects.HomePageObjects.getCabsMenuLink(HomePageObjects.java:33)
+at Automation.IbiboBasicTestsSteps.checkCablink(IbiboBasicTestsSteps.java:100)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:132)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:599)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:174)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:822)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:147)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.util.ArrayList.forEach(ArrayList.java:1257)
+at org.testng.TestRunner.privateRun(TestRunner.java:764)
+at org.testng.TestRunner.run(TestRunner.java:585)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1218)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
+at org.testng.TestNG.runSuites(TestNG.java:1069)
+at org.testng.TestNG.run(TestNG.java:1037)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkCablink -->
-        <test-method status="PASS" signature="closebrowser()[pri:0, instance:Automation.HomePage@5ccddd20]" name="closebrowser" is-config="true" duration-ms="1" started-at="2020-11-16T22:16:58 IST" finished-at="2020-11-16T22:16:58 IST">
+        <test-method status="PASS" signature="closebrowser()[pri:0, instance:Automation.IbiboBasicTestsSteps@3c22fc4c]" name="closebrowser" is-config="true" duration-ms="0" started-at="2020-11-20T21:57:41 IST" finished-at="2020-11-20T21:57:41 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closebrowser -->
-      </class> <!-- Automation.HomePage -->
+      </class> <!-- Automation.IbiboBasicTestsSteps -->
     </test> <!-- Test -->
   </suite> <!-- Suite -->
 </testng-results>

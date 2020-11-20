@@ -2,11 +2,11 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
 <listeners>
-	<listener class-name="Automation.Listeners"></listener>
+	<listener class-name="resources.Listeners"></listener>
 </listeners>
   <test thread-count="5" name="Test">
     <classes>
-      <class name="Automation.HomePage"/>
+      <class name="Automation.IbiboBasicTestsSteps"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

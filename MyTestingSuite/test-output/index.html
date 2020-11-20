@@ -26,7 +26,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button class="button" id="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite, 4 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -51,7 +51,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Suite">
-                    <span>F:\Eclipse_Workspace\MyTestingSuite\testng.xml</span>
+                    <span>F:\data\testframework_1\MyTestingSuite\testng.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -93,7 +93,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">7 methods, 1 failed,   6 passed</span>
+                    <span class="method-stats">7 methods, 4 failed,   3 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -104,7 +104,22 @@
                     <div class="method-list-content failed suite-Suite">
                       <span>
                         <img width="3%" src="failed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Automation.HomePage" hash-for-method="checkHotelLink">checkHotelLink</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Automation.IbiboBasicTestsSteps" hash-for-method="checkCablink">checkCablink</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Automation.IbiboBasicTestsSteps" hash-for-method="checkHotelLink">checkHotelLink</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Automation.IbiboBasicTestsSteps" hash-for-method="checkRoundTrip">checkRoundTrip</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Automation.IbiboBasicTestsSteps" hash-for-method="validateLogoDisplayed">validateLogoDisplayed</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Suite -->
@@ -118,32 +133,17 @@
                     <div class="method-list-content passed suite-Suite">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Automation.HomePage" hash-for-method="checkCablink">checkCablink</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Automation.IbiboBasicTestsSteps" hash-for-method="getTitleOfPage">getTitleOfPage</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Automation.HomePage" hash-for-method="checkRoundTrip">checkRoundTrip</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Automation.IbiboBasicTestsSteps" hash-for-method="initialize">initialize</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Automation.HomePage" hash-for-method="getTitleOfPage">getTitleOfPage</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Automation.HomePage" hash-for-method="initialize">initialize</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Automation.HomePage" hash-for-method="openHomePage">openHomePage</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Automation.HomePage" hash-for-method="validateLogoDisplayed">validateLogoDisplayed</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Automation.IbiboBasicTestsSteps" hash-for-method="openHomePage">openHomePage</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
@@ -161,32 +161,58 @@
           <div class="suite-Suite-class-failed">
             <div class="main-panel-header rounded-window-top">
               <img src="failed.png"/>
-              <span class="class-name">Automation.HomePage</span>
+              <span class="class-name">Automation.IbiboBasicTestsSteps</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="checkCablink">
+                  </a> <!-- checkCablink -->
+                  <span class="method-name">checkCablink</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at pageObjects.HomePageObjects.getCabsMenuLink(HomePageObjects.java:33)
+	at Automation.IbiboBasicTestsSteps.checkCablink(IbiboBasicTestsSteps.java:100)
+	at java.util.ArrayList.forEach(ArrayList.java:1257)
+... Removed 27 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
                   <a name="checkHotelLink">
                   </a> <!-- checkHotelLink -->
                   <span class="method-name">checkHotelLink</span>
-                  <div class="stack-trace">org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;button data-testid=&quot;searchHotelBtn&quot; class=&quot;dwebCommonstyles__ButtonBase-sc-112ty3f-9 SearchBlockUIstyles__SearchButtonAutoSuggest-fity7j-13 bdisym ekQIGU&quot;&gt;...&lt;/button&gt; is not clickable at point (454, 501). Other element would receive the click: &lt;li role=&quot;option&quot; id=&quot;downshift-1-item-2&quot; class=&quot;HomePageAutosuggeststyles__SearchListItem-sc-1v6s32j-2 eikFvD&quot;&gt;...&lt;/li&gt;
-  (Session info: chrome=86.0.4240.193)
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;LAPTOP-G1AJ66R1&apos;, ip: &apos;192.168.43.113&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_212&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 86.0.4240.193, chrome: {chromedriverVersion: 86.0.4240.22 (398b0743353ff..., userDataDir: C:\Users\91970\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:56465}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
-Session ID: 01781a8334dbfeb63d203bc449ea3f9f
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
-	at Automation.HomePage.checkHotelLink(HomePage.java:85)
+                  <div class="stack-trace">java.lang.NullPointerException
+	at pageObjects.HomePageObjects.getHotelsMenuLink(HomePageObjects.java:27)
+	at Automation.IbiboBasicTestsSteps.checkHotelLink(IbiboBasicTestsSteps.java:74)
 	at java.util.ArrayList.forEach(ArrayList.java:1257)
-... Removed 31 stack frames
+... Removed 27 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="checkRoundTrip">
+                  </a> <!-- checkRoundTrip -->
+                  <span class="method-name">checkRoundTrip</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at pageObjects.HomePageObjects.getRoundTripOption(HomePageObjects.java:30)
+	at Automation.IbiboBasicTestsSteps.checkRoundTrip(IbiboBasicTestsSteps.java:94)
+	at java.util.ArrayList.forEach(ArrayList.java:1257)
+... Removed 27 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="validateLogoDisplayed">
+                  </a> <!-- validateLogoDisplayed -->
+                  <span class="method-name">validateLogoDisplayed</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at pageObjects.HomePageObjects.getGoibiboLogo(HomePageObjects.java:24)
+	at Automation.IbiboBasicTestsSteps.validateLogoDisplayed(IbiboBasicTestsSteps.java:64)
+	at java.util.ArrayList.forEach(ArrayList.java:1257)
+... Removed 27 stack frames
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
@@ -195,23 +221,9 @@ Session ID: 01781a8334dbfeb63d203bc449ea3f9f
           <div class="suite-Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">Automation.HomePage</span>
+              <span class="class-name">Automation.IbiboBasicTestsSteps</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="checkCablink">
-                  </a> <!-- checkCablink -->
-                  <span class="method-name">checkCablink</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="checkRoundTrip">
-                  </a> <!-- checkRoundTrip -->
-                  <span class="method-name">checkRoundTrip</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
                   <a name="getTitleOfPage">
@@ -233,19 +245,12 @@ Session ID: 01781a8334dbfeb63d203bc449ea3f9f
                   <span class="method-name">openHomePage</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="validateLogoDisplayed">
-                  </a> <!-- validateLogoDisplayed -->
-                  <span class="method-name">validateLogoDisplayed</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-Suite-class-passed -->
         </div> <!-- panel Suite -->
         <div panel-name="test-xml-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">F:\Eclipse_Workspace\MyTestingSuite\testng.xml</span>
+            <span class="header-content">F:\data\testframework_1\MyTestingSuite\testng.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -253,11 +258,11 @@ Session ID: 01781a8334dbfeb63d203bc449ea3f9f
 &lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Suite&quot;&gt;
   &lt;listeners&gt;
-    &lt;listener class-name=&quot;Automation.Listeners&quot;/&gt;
+    &lt;listener class-name=&quot;resources.Listeners&quot;/&gt;
   &lt;/listeners&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Test&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;Automation.HomePage&quot;/&gt;
+      &lt;class name=&quot;Automation.IbiboBasicTestsSteps&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Test --&gt;
 &lt;/suite&gt; &lt;!-- Suite --&gt;
@@ -300,37 +305,37 @@ data.addColumn('number', 'Time (ms)');
 data.addRows(7);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'openHomePage')
-data.setCell(0, 2, 'Automation.HomePage')
-data.setCell(0, 3, 8115);
+data.setCell(0, 2, 'Automation.IbiboBasicTestsSteps')
+data.setCell(0, 3, 25880);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'checkHotelLink')
-data.setCell(1, 2, 'Automation.HomePage')
-data.setCell(1, 3, 6656);
+data.setCell(1, 1, 'initialize')
+data.setCell(1, 2, 'Automation.IbiboBasicTestsSteps')
+data.setCell(1, 3, 18848);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'initialize')
-data.setCell(2, 2, 'Automation.HomePage')
-data.setCell(2, 3, 4654);
+data.setCell(2, 1, 'checkRoundTrip')
+data.setCell(2, 2, 'Automation.IbiboBasicTestsSteps')
+data.setCell(2, 3, 4266);
 data.setCell(3, 0, 3)
-data.setCell(3, 1, 'checkCablink')
-data.setCell(3, 2, 'Automation.HomePage')
-data.setCell(3, 3, 3614);
+data.setCell(3, 1, 'getTitleOfPage')
+data.setCell(3, 2, 'Automation.IbiboBasicTestsSteps')
+data.setCell(3, 3, 609);
 data.setCell(4, 0, 4)
-data.setCell(4, 1, 'checkRoundTrip')
-data.setCell(4, 2, 'Automation.HomePage')
-data.setCell(4, 3, 2903);
+data.setCell(4, 1, 'checkHotelLink')
+data.setCell(4, 2, 'Automation.IbiboBasicTestsSteps')
+data.setCell(4, 3, 2);
 data.setCell(5, 0, 5)
 data.setCell(5, 1, 'validateLogoDisplayed')
-data.setCell(5, 2, 'Automation.HomePage')
-data.setCell(5, 3, 382);
+data.setCell(5, 2, 'Automation.IbiboBasicTestsSteps')
+data.setCell(5, 3, 1);
 data.setCell(6, 0, 6)
-data.setCell(6, 1, 'getTitleOfPage')
-data.setCell(6, 2, 'Automation.HomePage')
-data.setCell(6, 3, 29);
+data.setCell(6, 1, 'checkCablink')
+data.setCell(6, 2, 'Automation.IbiboBasicTestsSteps')
+data.setCell(6, 3, 0);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 26 seconds</span>
+              <span class="suite-total-time">Total running time: 49 seconds</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -356,40 +361,46 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">Automation.HomePage</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">Automation.IbiboBasicTestsSteps</div> <!-- chronological-class-name -->
               <div class="test-method">
                 <span class="method-name">initialize</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">openHomePage</span>
-                <span class="method-start">4666 ms</span>
+                <span class="method-start">18879 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">getTitleOfPage</span>
-                <span class="method-start">12788 ms</span>
+                <span class="method-start">44862 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
+                <img src="failed.png">
+                </img>
                 <span class="method-name">validateLogoDisplayed</span>
-                <span class="method-start">12819 ms</span>
+                <span class="method-start">45474 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">checkHotelLink</span>
-                <span class="method-start">13203 ms</span>
+                <span class="method-start">49115 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
+                <img src="failed.png">
+                </img>
                 <span class="method-name">checkRoundTrip</span>
-                <span class="method-start">20699 ms</span>
+                <span class="method-start">49911 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
+                <img src="failed.png">
+                </img>
                 <span class="method-name">checkCablink</span>
-                <span class="method-start">23604 ms</span>
+                <span class="method-start">55123 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-test after">
                 <span class="method-name">closebrowser</span>
-                <span class="method-start">27220 ms</span>
+                <span class="method-start">55559 ms</span>
               </div> <!-- configuration-test after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
