@@ -2,16 +2,19 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
   <listeners>
-    <listener class-name="Automation.Listeners"/>
+    <listener class-name="resources.Listeners"/>
   </listeners>
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="Automation.HomePage">
+      <class name="Automation.IbiboBasicTestsSteps">
         <methods>
+          <include name="checkRoundTrip"/>
+          <include name="validateLogoDisplayed"/>
+          <include name="checkCablink"/>
           <include name="checkHotelLink"/>
           <include name="closebrowser"/>
         </methods>
-      </class> <!-- Automation.HomePage -->
+      </class> <!-- Automation.IbiboBasicTestsSteps -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
