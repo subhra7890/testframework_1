@@ -7,7 +7,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -19,7 +18,6 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-
 import pageObjectModel.BookingDetail;
 import pageObjectModel.FlightSearch;
 import pageObjectModel.HomePage;
@@ -141,6 +139,7 @@ public class HomePageTest extends Base{
 	public void validateOfOneRoundTrip() throws InterruptedException
 	{
 		HomePage hp=new HomePage();
+		Reuse re=new Reuse();
 		hp.source().clear();
 		Thread.sleep(5000);
 		hp.source().sendKeys("KOL");
@@ -150,9 +149,10 @@ public class HomePageTest extends Base{
 		hp.destination().sendKeys("DEL");
 		hp.destinationText();
 		hp.departureDate().click();
-		hp.departureDateSelection();
+		//hp.departureDateSelection();
+		re.departureMonthSelection(hp.departureDate(),hp.departureMonth(),hp.departureNext(),"November");
+		re.departureDateSelection(hp.departureCalendarDays(),"24");
 		hp.traveller().click();
-		Reuse re=new Reuse();
 		//Select s=new Select(hp.classSelection());
 		Select s=re.select(hp.classSelection());
 		String expectedDefault="Economy";
@@ -171,16 +171,16 @@ public class HomePageTest extends Base{
 	@Test(dependsOnMethods = {"validateOfOneRoundTrip"})
 	public void departureTime_Stops_Airlines()
 	{
-		int actual=4;
+		int actual=5;
 		FlightSearch fp=new FlightSearch();
 		Reuse re=new Reuse();
 		//List<WebElement> elements=fp.departureTime().findElements(By.tagName("label"));
-		Assert.assertEquals(actual, re.sizeOfList(fp.departureTime(), "label"));
+		Assert.assertEquals(4, re.sizeOfList(fp.departureTime(), "label"));
 		ArrayList<String> actualList=new ArrayList<>(Arrays.asList("4am - 11am","11am - 4pm","4pm - 9pm","9pm - 4am"));
 		ArrayList<String> expectedList=re.addElements(fp.departureTime(),"label");
 		Assert.assertEquals(actualList, expectedList);
 		//List<WebElement> stopsNumber=fp.stops().findElements(By.tagName("label"));
-		ArrayList<String> actualStops=new ArrayList<>(Arrays.asList("0 Stop","1 Stops","2 Stops","3 Stops"));
+		ArrayList<String> actualStops=new ArrayList<>(Arrays.asList("0 Stop","1 Stops","2 Stops","3 Stops","4 Stops"));
 		ArrayList<String> expectedStops=re.addElements(fp.stops(),"label");
 		Assert.assertEquals(actual,re.sizeOfList(fp.stops(),"label"));
 		Assert.assertEquals(actualStops, expectedStops);

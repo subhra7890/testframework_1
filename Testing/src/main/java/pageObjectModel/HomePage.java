@@ -34,6 +34,7 @@ public class HomePage extends Base{
 	By classSelection=By.id("gi_class");
 	By adult=By.id("adultPaxPlus");
 	By adultClose=By.id("adultPaxBox");
+	By goStay=By.xpath("//a[@href='/gostays/']");
 	
 	public WebElement rightHeaderSection()
 	{
@@ -100,9 +101,11 @@ public class HomePage extends Base{
 		return driver.findElement(departureNext);
 	}
 	
-	public WebElement departureCalendarDays()
+	public List<WebElement> departureCalendarDays()
 	{
-		return driver.findElement(departureCalendarDays);
+		List<WebElement> elements=driver.findElements(departureCalendarDays);
+		//return driver.findElement(departureCalendarDays);
+		return elements;
 	}
 	
 	public WebElement traveller()
@@ -123,6 +126,13 @@ public class HomePage extends Base{
 	public WebElement classSelection()
 	{
 		return driver.findElement(classSelection);
+	}
+	
+	public GoStay goStay()
+	{
+		System.out.println(driver.findElement(goStay).getText());
+		driver.findElement(goStay).click();
+		return new GoStay();
 	}
 	
 	public void sourceText() throws InterruptedException

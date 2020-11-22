@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -126,6 +127,61 @@ public class Reuse extends Base{
 		js2.executeScript("arguments[0].scrollIntoView();", element);
 	}
 	
+	public void selectElementsList(WebElement element,String tag,String text)
+	{
+		List<WebElement> elements=element.findElements(By.tagName(tag));
+		for (WebElement webElement : elements) {
+			if(webElement.getText().equalsIgnoreCase(text))
+			{
+				webElement.click();
+				break;
+			}			
+		}
+	}
+	
+	public void javaScriptClick(WebElement element)
+	{
+		JavascriptExecutor js=(JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();",element);
+	}
+	
+	public void clickMultipleLink(WebElement eleemnt,String tag)
+	{
+		List<WebElement> elements=eleemnt.findElements(By.tagName(tag));
+		for (WebElement webElement : elements) {
+			String click=Keys.chord(Keys.CONTROL,Keys.ENTER);
+			webElement.sendKeys(click);
+		}
+	}
+	
+	public void departureMonthSelection(WebElement dateField,WebElement month,WebElement monthClick,String mon) throws InterruptedException
+	{
+		dateField.click();
+		String text=month.getText();
+		while (!text.contains(mon)) {
+			monthClick.click();
+			text=month.getText();		
+		}
+	}
+	
+	public void departureDateSelection(List <WebElement> days,String date)
+	{
+		List<WebElement> daysList=days;
+		for(int i=0;i<daysList.size();i++)
+		{
+			String[] value=daysList.get(i).getAttribute("aria-label").split(" ");
+			if(value[2].equalsIgnoreCase(date))
+			{
+				daysList.get(i).click();
+				break;
+			}
+		}
+		
+	}
+	
 	
 
+
+
+	
 }
