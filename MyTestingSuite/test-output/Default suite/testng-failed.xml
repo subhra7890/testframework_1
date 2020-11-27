@@ -3,12 +3,12 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Automation.IbiboBasicTestsSteps">
+      <class name="testClassesStepDefinations.HealthcareSuccessTests">
         <methods>
-          <include name="checkHotelLink"/>
-          <include name="closebrowser"/>
+          <include name="preTest"/>
+          <include name="requestProppsalStep_3_HelSuccess"/>
         </methods>
-      </class> <!-- Automation.IbiboBasicTestsSteps -->
+      </class> <!-- testClassesStepDefinations.HealthcareSuccessTests -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

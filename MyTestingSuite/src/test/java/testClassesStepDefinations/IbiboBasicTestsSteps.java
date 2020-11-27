@@ -1,4 +1,4 @@
-package Automation;
+package testClassesStepDefinations;
 
 import static org.testng.Assert.assertEquals;
 
@@ -17,18 +17,13 @@ import org.testng.annotations.Test;
 
 import pageObjects.HomePageObjects;
 import pageObjects.HotelsPageObjects;
+import resources.ReadExcelData;
 import resources.base;
 
 public class IbiboBasicTestsSteps extends base {
-	public WebDriver driver;
-	HomePageObjects HomePB = new HomePageObjects(driver);
-	HotelsPageObjects HotelsPB = new HotelsPageObjects(driver);
+	public WebDriver driver;	
 	
-	/*@BeforeTest
-	public void config() {
-		
-	}   */
-	
+
 	
 	@Test(priority=1)
 	public void initialize() throws IOException
@@ -38,14 +33,15 @@ public class IbiboBasicTestsSteps extends base {
 
 	}
 	@Test(priority=2)
-	public void openHomePage() throws IOException, InterruptedException {
+	public void openHomePage() throws Exception {
 		
-		driver.get("https://goibibo.com");
+		
+		ReadExcelData rdata = new ReadExcelData(getTestdataPath());
+		//driver.get("https://goibibo.com");
+		driver.get(rdata.getCellData("IbiboBasicTestsSteps","goIBIBOurl", 2));
 		driver.manage().window().maximize();
-		//WebDriverWait wait = new WebDriverWait(driver,6);
-		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@id='webklipper-publisher-widget-container-notification-close-div']")));
+		
 		System.out.println("pop up is displayed and to be closed");
-		//driver.findElement(By.xpath("//a[@id='webklipper-publisher-widget-container-notification-close-div']")).click();
 		
 		
 	}
@@ -60,22 +56,24 @@ public class IbiboBasicTestsSteps extends base {
 	@Test(priority=4)
 	public void validateLogoDisplayed() {
 		
+		HomePageObjects HomePB = new HomePageObjects(driver);
 		//boolean logodispalyed=driver.findElement(By.xpath("//img[@src=\"https://goibibo.ibcdn.com/styleguide/images/goLogo.png\"]")).isDisplayed();
 		boolean logodispalyed=HomePB.getGoibiboLogo().isDisplayed();
 		assertEquals(true, logodispalyed);
 	}
 	
 	@Test(priority=5)
-	public void checkHotelLink() throws InterruptedException {
+	public void checkHotelLink() throws IOException, Exception {
 		
-		
-
+		HomePageObjects HomePB = new HomePageObjects(driver);
+		HotelsPageObjects HotelsPB = new HotelsPageObjects(driver);
+		ReadExcelData rdata = new ReadExcelData(getTestdataPath());
 		//driver.findElement(By.xpath("(//a[@href=\"/hotels/\"])[1]")).click();
 		HomePB.getHotelsMenuLink().click();
 		//driver.findElement(By.xpath("//h4[text()='International']")).click();
 		HotelsPB.getInternationalradio().click();
 		//driver.findElement(By.xpath("//input[@class='HomePageAutosuggeststyles__SearchInputStyles-sc-1v6s32j-1 cYUrYT']")).sendKeys("Goa");
-		HotelsPB.getWhereInputBox().sendKeys("Goa");
+		HotelsPB.getWhereInputBox().sendKeys(rdata.getCellData("IbiboBasicTestsSteps","getWhereInputBox", 2));
 		WebDriverWait wait = new WebDriverWait(driver,6);
 		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='downshift-1-input' and @value='Goa']")));
 		wait.until(ExpectedConditions.visibilityOfElementLocated((By) HotelsPB.getGoaDropOption()));
@@ -89,6 +87,7 @@ public class IbiboBasicTestsSteps extends base {
 	
 	@Test(priority=6)
 	public void checkRoundTrip() throws InterruptedException {
+		HomePageObjects HomePB = new HomePageObjects(driver);
 		driver.navigate().back();
 		//driver.findElement(By.xpath("//span[@id='roundTrip']")).click();
 		HomePB.getRoundTripOption().click();
@@ -96,6 +95,7 @@ public class IbiboBasicTestsSteps extends base {
 	
 	@Test(priority=7)
 	public void checkCablink() throws InterruptedException {
+		HomePageObjects HomePB = new HomePageObjects(driver);
 		//driver.findElement(By.linkText("Cabs")).click();
 		HomePB.getCabsMenuLink().click();
 		System.out.println("Cab link is clicked");

@@ -18,10 +18,20 @@ import org.openqa.selenium.edge.EdgeDriver;
 
 public class base {
 	public  WebDriver driver;
+	static Properties prop = new Properties();
 	
-	public WebDriver initializeDriver() throws IOException {
+	public  static String getTestdataPath() throws IOException
+	{
+			FileInputStream fis=new FileInputStream("F:\\Eclipse_Workspace\\E2EProjectCucumber\\src\\main\\java\\resources\\data.properties");
+			prop.load(fis);
+			String testdataPath=prop.getProperty("testdata_XLPath");
+			return testdataPath;
+	}
+	
+	@SuppressWarnings("deprecation")
+	public  WebDriver initializeDriver() throws IOException {
 		
-		Properties prop = new Properties();
+		
 		FileInputStream fis =new FileInputStream("F:\\data\\testframework_1\\MyTestingSuite\\src\\main\\java\\resources\\data.properties");
 		
 		prop.load(fis);

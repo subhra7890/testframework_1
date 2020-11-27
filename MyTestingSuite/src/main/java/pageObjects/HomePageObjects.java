@@ -19,6 +19,12 @@ public class HomePageObjects {
 	By roundTripOption = By.xpath("//span[@id='roundTrip']");
 	By cabsMenuLink = By.linkText("Cabs");
 	
+	By flightMenuLink = By.linkText("Flights");
+	By gostaysMenuLink = By.xpath("(//a[@href='/gostays/'])[1]");   
+	By busMenuLink = By.linkText("Bus");
+	By visaMenuLink = By.xpath("//a[@href='/visa/']");
+	By IRCTCMenuLink = By.linkText("IRCTC Trains");
+	
 	
 	public WebElement getGoibiboLogo() {
 		return driver.findElement(goibiboLogo);
@@ -31,6 +37,22 @@ public class HomePageObjects {
 	}
 	public WebElement getCabsMenuLink() {
 		return driver.findElement(cabsMenuLink);
+	}
+	
+	public WebElement getFlightMenuLink() {
+		return driver.findElement(flightMenuLink);
+	}
+	public WebElement getGostaysMenuLink() {
+		return driver.findElement(gostaysMenuLink);
+	}
+	public WebElement getBusMenuLink() {
+		return driver.findElement(busMenuLink);
+	}
+	public WebElement getVisaMenuLink() {
+		return driver.findElement(visaMenuLink);
+	}
+	public WebElement getIRCTCMenuLink() {
+		return driver.findElement(IRCTCMenuLink);
 	}
 
 
