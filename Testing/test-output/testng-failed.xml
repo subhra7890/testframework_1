@@ -6,8 +6,13 @@
       <class name="testCases.HomePageTest">
         <methods>
           <include name="tearDown"/>
+          <include name="oneRoundTripWithoutDepDate"/>
+          <include name="ValidateFilterResult"/>
           <include name="initialize"/>
-          <include name="titleOfLinksRightSection"/>
+          <include name="validateOfOneRoundTrip"/>
+          <include name="departureTime_Stops_Airlines"/>
+          <include name="resetSortingPrice"/>
+          <include name="flightBooking"/>
         </methods>
       </class> <!-- testCases.HomePageTest -->
     </classes>

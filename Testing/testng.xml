@@ -7,8 +7,12 @@
       </classes>
       </test>
       <test thread-count="5" name="GoStay">
-    	<classes>
-      <class name="testCases.GoStayTest"/>
+      <classes>
+      <class name="testCases.GoStayTest">
+      <methods>
+      <exclude name="selectTrendingCity"/>
+      </methods>
+      </class>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

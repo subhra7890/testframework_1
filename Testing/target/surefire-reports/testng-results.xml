@@ -1,29 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+<testng-results ignored="0" total="7" passed="7" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-10-29T22:07:36 IST" name="Suite" finished-at="2020-10-29T22:08:25 IST" duration-ms="48576">
+  <suite started-at="2020-11-16T22:37:09 IST" name="Suite" finished-at="2020-11-16T22:40:17 IST" duration-ms="188836">
     <groups>
     </groups>
-    <test started-at="2020-10-29T22:07:36 IST" name="Test" finished-at="2020-10-29T22:08:25 IST" duration-ms="48576">
+    <test started-at="2020-11-16T22:37:09 IST" name="Test" finished-at="2020-11-16T22:40:17 IST" duration-ms="188836">
       <class name="testCases.HomePageTest">
-        <test-method is-config="true" signature="initialize()[pri:0, instance:testCases.HomePageTest@45f45fa1]" started-at="2020-10-29T22:07:36 IST" name="initialize" finished-at="2020-10-29T22:07:50 IST" duration-ms="13670" status="PASS">
+        <test-method is-config="true" signature="initialize()[pri:0, instance:testCases.HomePageTest@341b80b2]" started-at="2020-11-16T22:37:09 IST" name="initialize" finished-at="2020-11-16T22:37:21 IST" duration-ms="12407" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initialize -->
-        <test-method signature="numberOfLinksInLeftSection()[pri:0, instance:testCases.HomePageTest@45f45fa1]" started-at="2020-10-29T22:07:50 IST" name="numberOfLinksInLeftSection" finished-at="2020-10-29T22:07:51 IST" duration-ms="1118" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- numberOfLinksInLeftSection -->
-        <test-method signature="numberOfLinksInRightSection()[pri:0, instance:testCases.HomePageTest@45f45fa1]" started-at="2020-10-29T22:07:51 IST" name="numberOfLinksInRightSection" finished-at="2020-10-29T22:07:52 IST" duration-ms="583" status="PASS">
+        <test-method signature="numberOfLinksInRightSection()[pri:0, instance:testCases.HomePageTest@341b80b2]" started-at="2020-11-16T22:37:21 IST" name="numberOfLinksInRightSection" finished-at="2020-11-16T22:37:22 IST" duration-ms="1327" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- numberOfLinksInRightSection -->
-        <test-method signature="titleOfLinksRightSection()[pri:0, instance:testCases.HomePageTest@45f45fa1]" started-at="2020-10-29T22:07:52 IST" name="titleOfLinksRightSection" finished-at="2020-10-29T22:08:24 IST" duration-ms="32209" status="PASS">
+        <test-method signature="oneRoundTripWithoutDepDate()[pri:0, instance:testCases.HomePageTest@341b80b2]" started-at="2020-11-16T22:37:22 IST" name="oneRoundTripWithoutDepDate" finished-at="2020-11-16T22:38:56 IST" duration-ms="93452" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- oneRoundTripWithoutDepDate -->
+        <test-method signature="numberOfLinksInLeftSection()[pri:0, instance:testCases.HomePageTest@341b80b2]" started-at="2020-11-16T22:38:56 IST" name="numberOfLinksInLeftSection" finished-at="2020-11-16T22:38:56 IST" duration-ms="418" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- numberOfLinksInLeftSection -->
+        <test-method signature="titleOfLinksRightSection()[pri:0, instance:testCases.HomePageTest@341b80b2]" started-at="2020-11-16T22:38:56 IST" name="titleOfLinksRightSection" finished-at="2020-11-16T22:39:28 IST" duration-ms="31399" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- titleOfLinksRightSection -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:testCases.HomePageTest@45f45fa1]" started-at="2020-10-29T22:08:24 IST" name="tearDown" finished-at="2020-10-29T22:08:25 IST" duration-ms="898" status="PASS">
+        <test-method signature="validateOfOneRoundTrip()[pri:0, instance:testCases.HomePageTest@341b80b2]" started-at="2020-11-16T22:39:28 IST" name="validateOfOneRoundTrip" finished-at="2020-11-16T22:40:09 IST" depends-on-methods="testCases.HomePageTest.oneRoundTripWithoutDepDate" duration-ms="41347" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validateOfOneRoundTrip -->
+        <test-method signature="departureTime_Stops_Airlines()[pri:0, instance:testCases.HomePageTest@341b80b2]" started-at="2020-11-16T22:40:09 IST" name="departureTime_Stops_Airlines" finished-at="2020-11-16T22:40:10 IST" depends-on-methods="testCases.HomePageTest.validateOfOneRoundTrip" duration-ms="509" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- departureTime_Stops_Airlines -->
+        <test-method signature="ValidateFilterResult()[pri:0, instance:testCases.HomePageTest@341b80b2]" started-at="2020-11-16T22:40:10 IST" name="ValidateFilterResult" finished-at="2020-11-16T22:40:17 IST" depends-on-methods="testCases.HomePageTest.departureTime_Stops_Airlines" duration-ms="6967" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ValidateFilterResult -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:testCases.HomePageTest@341b80b2]" started-at="2020-11-16T22:40:17 IST" name="tearDown" finished-at="2020-11-16T22:40:17 IST" duration-ms="885" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

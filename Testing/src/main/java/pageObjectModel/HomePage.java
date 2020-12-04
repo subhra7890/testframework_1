@@ -6,18 +6,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.StaleElementReferenceException;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import resources.Base;
 
 public class HomePage extends Base{
-	//public WebDriver driver;
-
-	/*
-	 * public HomePage(WebDriver driver) { this.driver = driver; }
-	 */
 	
+	//private WebDriver driver;
 	By rightHeader=By.xpath("//div[contains(@class,'marginT5')]");
 	By leftHeader=By.xpath("//div[contains(@class,'txtRight')]");
 	By container=By.xpath("//div[contains(@id,'notification-container')]");
@@ -36,6 +31,12 @@ public class HomePage extends Base{
 	By adultClose=By.id("adultPaxBox");
 	By goStay=By.xpath("//a[@href='/gostays/']");
 	
+	
+	
+//	public HomePage(WebDriver driver) {
+//		this.driver = driver;
+//	}
+
 	public WebElement rightHeaderSection()
 	{
 		return driver.findElement(rightHeader);
@@ -71,12 +72,10 @@ public class HomePage extends Base{
 	{
 		driver.findElement(search).click();
 		try {
-			FlightSearch fp=new FlightSearch();
-			return fp;
+			return new FlightSearch();
 		} catch (StaleElementReferenceException e) {
 			// TODO: handle exception
-			FlightSearch fp1=new FlightSearch();
-			return fp1;
+			return new FlightSearch();
 		}
 		
 	}
@@ -170,26 +169,26 @@ public class HomePage extends Base{
 		
 	}
 	
-	public void departureDateSelection() throws InterruptedException
-	{
-		departureDate().click();
-		String text=departureMonth().getText();
-		while (!text.contains("November")) {
-			departureNext().click();
-			text=departureMonth().getText();		
-		}
-		List<WebElement> daysList=driver.findElements(departureCalendarDays);
-		for(int i=0;i<daysList.size();i++)
-		{
-			String[] value=daysList.get(i).getAttribute("aria-label").split(" ");
-			if(value[2].equalsIgnoreCase("22"))
-			{
-				daysList.get(i).click();
-				break;
-			}
-		}
-		
-	}
+//	public void departureDateSelection() throws InterruptedException
+//	{
+//		departureDate().click();
+//		String text=departureMonth().getText();
+//		while (!text.contains("November")) {
+//			departureNext().click();
+//			text=departureMonth().getText();		
+//		}
+//		List<WebElement> daysList=driver.findElements(departureCalendarDays);
+//		for(int i=0;i<daysList.size();i++)
+//		{
+//			String[] value=daysList.get(i).getAttribute("aria-label").split(" ");
+//			if(value[2].equalsIgnoreCase("22"))
+//			{
+//				daysList.get(i).click();
+//				break;
+//			}
+//		}
+//		
+//	}
 	
 	
 

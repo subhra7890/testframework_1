@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import resources.Base;
 
 public class BookingDetail extends Base{
+	//private WebDriver driver;
 	By fareDetails=By.xpath("//div[@class='flightDetails fl']");
 	By offersList=By.xpath("//div[@class='fl width100 padTB15 borderBtm posRel']");
 	By alertText=By.xpath("//div[@class='popContent']");
@@ -17,6 +18,11 @@ public class BookingDetail extends Base{
 	By proceed=By.xpath("//button[contains(@class,'orange')]");
 	By errorMsg=By.xpath("(//span[contains(@class,'alert_msg')])[3]");
 	
+	
+//	public BookingDetail(WebDriver driver) {
+//		this.driver = driver;
+//	}
+
 	public WebElement fareDetails()
 	{
 		return driver.findElement(fareDetails);

@@ -13,10 +13,11 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import pageObjectModel.GoStay;
 import pageObjectModel.HomePage;
 
 public class Reuse extends Base{
-	
+	//private WebDriver driver;
 	public String Time(String time)
 	{
 		String value="";
@@ -64,6 +65,7 @@ public class Reuse extends Base{
 	
 	public void exceptionHandling()
 	{
+		//driver=initializeDriver();
 		HomePage hp=new HomePage();
 		try {
 			WebDriverWait wait=new WebDriverWait(driver, 50);
@@ -123,7 +125,8 @@ public class Reuse extends Base{
 	
 	public void scrollDown(WebElement element)
 	{
-		JavascriptExecutor js2=(JavascriptExecutor) driver;
+		//driver=initializeDriver();
+		JavascriptExecutor js2=(JavascriptExecutor)driver;
 		js2.executeScript("arguments[0].scrollIntoView();", element);
 	}
 	
@@ -141,7 +144,8 @@ public class Reuse extends Base{
 	
 	public void javaScriptClick(WebElement element)
 	{
-		JavascriptExecutor js=(JavascriptExecutor) driver;
+		//driver=initializeDriver();
+		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();",element);
 	}
 	
@@ -154,10 +158,13 @@ public class Reuse extends Base{
 		}
 	}
 	
-	public void departureMonthSelection(WebElement dateField,WebElement month,WebElement monthClick,String mon) throws InterruptedException
+	public void departureMonthSelection(WebElement dateField,WebElement month,WebElement monthClick,String mon) 
 	{
+		System.out.println("before click");
 		dateField.click();
+		System.out.println("after click");
 		String text=month.getText();
+		System.out.println("text is :"+text);
 		while (!text.contains(mon)) {
 			monthClick.click();
 			text=month.getText();		
@@ -178,6 +185,40 @@ public class Reuse extends Base{
 		}
 		
 	}
+	
+	public void hotelCitySelection(String city) throws InterruptedException
+	{
+
+		Thread.sleep(8000);
+		GoStay go=new GoStay();
+		go.source().sendKeys(city);
+		go.source().sendKeys(Keys.DOWN);
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		String script="return document.getElementById(\"downshift-1-input\").value;";
+		System.out.println(script);
+		String text=(String)js.executeScript(script);
+		System.out.println("city name is :"+text);
+		while (!text.equals(city)) {
+			go.source().sendKeys(Keys.DOWN);
+			Thread.sleep(5000);
+			text=(String)js.executeScript(script);
+		}
+		go.source().sendKeys(Keys.ENTER);
+		Thread.sleep(5000);
+	}
+	
+	public void hotelDateSelection(List <WebElement> days,String date)
+	{
+		List<WebElement> daysList=days;
+		for (WebElement webElement : daysList) {
+			if(webElement.getText().equalsIgnoreCase(date))
+			{
+				webElement.click();
+				break;
+			}
+		}
+	}
+	
 	
 	
 

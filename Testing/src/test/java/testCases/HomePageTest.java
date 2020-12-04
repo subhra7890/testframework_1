@@ -1,13 +1,14 @@
 package testCases;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -16,15 +17,18 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pageObjectModel.BookingDetail;
 import pageObjectModel.FlightSearch;
 import pageObjectModel.HomePage;
 import resources.Base;
+import resources.ExcelUtilities;
 import resources.Reuse;
 
 public class HomePageTest extends Base{
+	//private WebDriver driver;
 	@BeforeTest
 	public void initialize() {
 		driver = initializeDriver();
@@ -140,18 +144,25 @@ public class HomePageTest extends Base{
 	{
 		HomePage hp=new HomePage();
 		Reuse re=new Reuse();
-		hp.source().clear();
-		Thread.sleep(5000);
+		while(!hp.source().getAttribute("value").isEmpty())
+		{
+			hp.source().sendKeys(Keys.BACK_SPACE);
+		}
+		//hp.source().clear();
+		//Thread.sleep(5000);
 		hp.source().sendKeys("KOL");
 		hp.sourceText();
-		hp.destination().clear();
-		Thread.sleep(5000);
+		while(!hp.destination().getAttribute("value").isEmpty())
+		{
+			hp.destination().sendKeys(Keys.BACK_SPACE);
+		}
+		//Thread.sleep(5000);
 		hp.destination().sendKeys("DEL");
 		hp.destinationText();
 		hp.departureDate().click();
 		//hp.departureDateSelection();
-		re.departureMonthSelection(hp.departureDate(),hp.departureMonth(),hp.departureNext(),"November");
-		re.departureDateSelection(hp.departureCalendarDays(),"24");
+		re.departureMonthSelection(hp.departureDate(),hp.departureMonth(),hp.departureNext(),"December");
+		re.departureDateSelection(hp.departureCalendarDays(),"10");
 		hp.traveller().click();
 		//Select s=new Select(hp.classSelection());
 		Select s=re.select(hp.classSelection());
@@ -171,7 +182,7 @@ public class HomePageTest extends Base{
 	@Test(dependsOnMethods = {"validateOfOneRoundTrip"})
 	public void departureTime_Stops_Airlines()
 	{
-		int actual=5;
+		int actual=4;
 		FlightSearch fp=new FlightSearch();
 		Reuse re=new Reuse();
 		//List<WebElement> elements=fp.departureTime().findElements(By.tagName("label"));
@@ -182,69 +193,89 @@ public class HomePageTest extends Base{
 		//List<WebElement> stopsNumber=fp.stops().findElements(By.tagName("label"));
 		ArrayList<String> actualStops=new ArrayList<>(Arrays.asList("0 Stop","1 Stops","2 Stops","3 Stops","4 Stops"));
 		ArrayList<String> expectedStops=re.addElements(fp.stops(),"label");
-		Assert.assertEquals(actual,re.sizeOfList(fp.stops(),"label"));
-		Assert.assertEquals(actualStops, expectedStops);
+		SoftAssert soft=new SoftAssert();
+		soft.assertEquals(actual, re.sizeOfList(fp.stops(),"label"));
+		//Assert.assertEquals(actual,re.sizeOfList(fp.stops(),"label"));
+		//Assert.assertEquals(actualStops, expectedStops);
+		soft.assertEquals(actualStops, expectedStops);
 		Assert.assertTrue(fp.onwardPrice().isDisplayed());
 		Assert.assertTrue(fp.onwardDuration().isDisplayed());
 		//List<WebElement> airLinesNames=fp.airLines().findElements(By.tagName("label"));
 		//ArrayList<String> expectedAirLine=re.addElements(fp.airLines(),"label");
 		int actualCount=6;
-		SoftAssert soft=new SoftAssert();
+		//SoftAssert soft=new SoftAssert();
 		soft.assertEquals(actualCount, re.sizeOfList(fp.airLines(),"label"));
 	}
 	
-	@Test(dependsOnMethods = {"departureTime_Stops_Airlines"})
-	public void ValidateFilterResult()
+	@Test(dataProvider="flightFilter", dependsOnMethods = {"departureTime_Stops_Airlines"},alwaysRun =true)
+	public void ValidateFilterResult(String airline,String source,String destination,String departureTime,String stops) throws InterruptedException
 	{
-		String actualAirLine="Air India";
-		String actualSource="Kolkata";
-		String actualDestination="Delhi";
-		String actualTime="4am - 11am";
+//		String actualAirLine="Air India";
+//		String actualSource="Kolkata";
+//		String actualDestination="Delhi";
+//		String actualTime="4am - 11am";
 		int actual=4;
 		ArrayList<String> actualList=new ArrayList<>(Arrays.asList("FLIGHT INFORMATION","FARE DETAILS","BAGGAGE RULES","CANCELLATION RULES"));
 		FlightSearch fp=new FlightSearch();
 		Reuse re=new Reuse();
-		re.applyFilter(fp.departureTime(),"label","4am - 11am");
-		re.applyFilter(fp.stops(),"label","1 Stops");
-		re.applyFilter(fp.airLines(),"label","Air India");
+		re.applyFilter(fp.departureTime(),"label",departureTime);
+		re.applyFilter(fp.stops(),"label",stops);
+		re.applyFilter(fp.airLines(),"label",airline);
 		List<WebElement> filterResult=fp.filterResult();
 		for(int i=0;i<filterResult.size();i++)
 		{
+			System.out.println("***************");
 			String expectedAirLine=fp.airLineName(i+1).getText();
-			Assert.assertEquals(actualAirLine, expectedAirLine);
+			System.out.println(expectedAirLine);
+			Assert.assertEquals(airline, expectedAirLine);
 			String expectedSource=fp.Station((2*i)+1).getText();
-			Assert.assertTrue(expectedSource.contains(actualSource));
+			System.out.println(expectedSource);
+			Assert.assertTrue(expectedSource.contains(source));
 			String expectedDestination=fp.Station((2*i)+2).getText();
-			Assert.assertTrue(expectedDestination.contains(actualDestination));
+			System.out.println(expectedDestination);
+			Assert.assertTrue(expectedDestination.contains(destination));
 			String[] time=fp.resultDepartureTime((2*i)+1).getText().split(":");
 			String expectedTime=time[0];
-			Assert.assertTrue(re.compariosn(actualTime, expectedTime));
+			System.out.println(expectedTime);
+			Assert.assertTrue(re.compariosn(departureTime, expectedTime));
 			fp.flightDetails(i+1).click();
 			ArrayList<String> expectedList=re.addElements(fp.flightDetailsBar(),"span");
 			Assert.assertEquals(actual, re.sizeOfList(fp.flightDetailsBar(),"span"));
 			Assert.assertEquals(actualList, expectedList);
 			Assert.assertTrue(fp.flightInformation().isDisplayed());
 			fp.fareDetails(i+1).click();
+			System.out.println("fare details window :"+fp.fareDetailsWindow().isDisplayed());
 			Assert.assertTrue(fp.fareDetailsWindow().isDisplayed());
 			fp.baggage(i+1).click();
+			System.out.println("baggage window :"+fp.baggageWindow().isDisplayed());
 			Assert.assertTrue(fp.baggageWindow().isDisplayed());
 			fp.cancellation(i+1).click();
+			System.out.println("cancel window :"+fp.cancelWindow().isDisplayed());
 			Assert.assertTrue(fp.cancelWindow().isDisplayed());
 			Assert.assertEquals("Goibibo Fee",fp.companyName().getText());
-			Assert.assertEquals("300",fp.cancellationFee().getText());
-		}	
+			Assert.assertEquals("300",fp.cancellationFee().getText());	
+			System.out.println("*****************************");
+		}
+		fp.reset().click();
+		Assert.assertFalse(re.statusOfLabel(fp.departureTime(), "label",departureTime));
+		Assert.assertFalse(re.statusOfLabel(fp.stops(),"label",stops));
+		Assert.assertFalse(fp.flightOptions(airline).isSelected());
+		Thread.sleep(5000);
 	}
 	
-	@Test(dependsOnMethods = {"ValidateFilterResult"})
-	public void resetSortingPrice()
+	@Test(dependsOnMethods = {"ValidateFilterResult"},alwaysRun = true)
+	public void resetSortingPrice() throws InterruptedException
 	{
 		FlightSearch fp=new FlightSearch();
-		fp.reset().click();
-		Reuse re=new Reuse();
-		Assert.assertFalse(re.statusOfLabel(fp.departureTime(), "label","4am - 11am"));
-		Assert.assertFalse(re.statusOfLabel(fp.stops(),"label","1 Stops"));
-		Assert.assertFalse(fp.flightOptions("Air India").isSelected());
-		fp.priceClick().click();
+		//fp.reset().click();
+//		Reuse re=new Reuse();
+//		Assert.assertFalse(re.statusOfLabel(fp.departureTime(), "label","4am - 11am"));
+//		Assert.assertFalse(re.statusOfLabel(fp.stops(),"label","1 Stops"));
+//		Assert.assertFalse(fp.flightOptions("Air India").isSelected());
+		JavascriptExecutor js=(JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click()", fp.priceClick());
+		Thread.sleep(2000);
+		//fp.priceClick().click();
 		List<WebElement> filterResult=fp.filterResult();
 		ArrayList<Integer> priceList=new ArrayList<>();
 		for(int i=0;i<filterResult.size();i++)
@@ -257,12 +288,15 @@ public class HomePageTest extends Base{
 		for (Integer integer : priceList) {
 			copiedList.add(integer);
 		}
+		for (Integer integer : copiedList) {
+			System.out.println(integer);
+		}
 		Collections.sort(copiedList);
 		Collections.reverse(copiedList);
 		Assert.assertEquals(priceList, copiedList);		
 	}
 	
-	@Test(dependsOnMethods = {"resetSortingPrice"})
+	@Test(dependsOnMethods = {"resetSortingPrice"},alwaysRun = true)
 	public void flightBooking()
 	{
 		FlightSearch fp=new FlightSearch();
@@ -291,7 +325,7 @@ public class HomePageTest extends Base{
 		SoftAssert soft=new SoftAssert();
 		//Assert.assertEquals(actualList, expectedList);
 		soft.assertEquals(actualList, expectedList);
-		bd.selectOffer("GOAXIS10X").click();
+		bd.selectOffer("GOHDFC").click();
 		Assert.assertTrue(bd.alertText().isDisplayed(),"offer value is selected");
 		Assert.assertTrue(bd.alertText().getText().contains(offerMsg),"offer msg is validated");
 		bd.alertClick().click();
@@ -303,6 +337,21 @@ public class HomePageTest extends Base{
 		re.scrollDown(bd.proceed());
 		bd.proceed().click();
 		Assert.assertTrue(bd.errorMsg().getText().equalsIgnoreCase(errorMsg));	
+	}
+	
+	@DataProvider(name="flightFilter")
+	public Object[][] getDataProvider() throws IOException
+	{
+		String location="C:\\Users\\HP\\eclipse-workspace\\Maven Project\\Testing\\src\\main\\java\\resources\\TestData.xlsx";
+		  ExcelUtilities exe=new ExcelUtilities(location);
+		  int sheetIndex=exe.indexSheet("FlightSearch");
+		  System.out.println("sheet index is :"+sheetIndex);
+		  int testIndex=exe.indexTestCase(sheetIndex,"ValidateFilterResult");
+		  System.out.println("test case index is :"+testIndex);
+		  int rowIndex=exe.rowIndex("ValidateFilterResult");
+		  System.out.println("row index is :"+rowIndex);
+		  Object[][] data=exe.readData(sheetIndex, testIndex, rowIndex);
+		  return data;
 	}
 	
 	

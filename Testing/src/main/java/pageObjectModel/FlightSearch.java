@@ -3,12 +3,15 @@ package pageObjectModel;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import resources.Base;
 
 public class FlightSearch extends Base{
-	
+	//private WebDriver driver;
 	By afterSearch=By.xpath("//div[@class='fl width100 flexCol']");
 	By sourceCity=By.xpath("(//span[@class='db textOverflow'])[1]/child::span[2]");
 	By destinationCity=By.xpath("(//span[@class='db textOverflow'])[2]/child::span[2]");
@@ -17,7 +20,7 @@ public class FlightSearch extends Base{
 	By onwardPrice=By.xpath("(//div[@id='sliderFO'])[1]");
 	By onwardDuration=By.xpath("(//div[@id='sliderFO'])[2]");
 	By airLines=By.xpath("//div[@id='Air India']/parent::div");
-	By filterResult=By.xpath("//div[@class='fl width100 dF padLR20 padT10']");
+	By filterResult=By.xpath("//div[contains(@class,'fl width100 dF pad')]");
 	By flightDetailsBar=By.xpath("//div[@class='quicks paleGreyBg blueGrey alignItemsCenter justifyBetween dF fb txtTransUpper fltHpyDtlMenu ico13']");
 	By flightInformation=By.xpath("//div[@class='fltHpyDtlsCont justifyBetween dF padT20']");
 	By fareDetailsWindow=By.xpath("//div[contains(@class,'fltDetailsBody fl width')]");
@@ -27,7 +30,7 @@ public class FlightSearch extends Base{
 	By cancellationFee=By.xpath("//span[text()='Goibibo Fee']/following::span[1]");
 	By reset=By.xpath("//span[text()='Reset All']");
 	By priceClick=By.xpath("//li[@id='PRICE']");
-	By book=By.xpath("(//input[contains(@data-cy,'Btn')])[1]");
+	By book=By.xpath("(//input[contains(@data-cy,'btn')])[1]");
 	By bookUnderFare=By.xpath("(//input[@value='Book'])[1]");
 	private String airLineName="(//div[@class='dF width100 alignItemsCenter'])";
 	private String station="(//span[@class='db textOverflow'])";
@@ -38,6 +41,10 @@ public class FlightSearch extends Base{
 	private String cancellation="(//span[text()='Cancellation Rules'])";
 	
 	
+//	public FlightSearch(WebDriver driver) {
+//		this.driver = driver;
+//	}
+
 	public WebElement afterSearch()
 	{
 		return driver.findElement(afterSearch);
@@ -193,16 +200,29 @@ public class FlightSearch extends Base{
 	
 	public BookingDetail book()
 	{
+		try {
 		driver.findElement(book).click();
-		BookingDetail bd=new BookingDetail();
-		return bd;
+		return new BookingDetail();
+		}catch (Exception e) {
+			JavascriptExecutor js=(JavascriptExecutor) driver;
+			js.executeScript("arguments[0].click()", driver.findElement(book));
+			return new BookingDetail();	
+		}
 	}
 	
 	public BookingDetail bookUnderFare()
 	{
-		driver.findElement(bookUnderFare).click();
-		BookingDetail bd=new BookingDetail();
-		return bd;
+//		WebDriverWait wait=new WebDriverWait(driver, 40);
+//		wait.until(ExpectedConditions.elementToBeClickable(bookUnderFare));
+		try {
+			driver.findElement(bookUnderFare).click();
+			return new BookingDetail();
+		} catch (Exception e) {
+			JavascriptExecutor js=(JavascriptExecutor) driver;
+			js.executeScript("arguments[0].click()", driver.findElement(bookUnderFare));
+			return new BookingDetail();
+		}
+
 	}
 	
 	public WebElement bookText()

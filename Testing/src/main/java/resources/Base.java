@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Base {
 public static WebDriver driver;
+//public WebDriver driver;
 	
 	public WebDriver initializeDriver()
 	{

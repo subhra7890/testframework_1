@@ -1,29 +1,369 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+<testng-results ignored="0" total="17" passed="16" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-10-29T22:05:53 IST" name="Default suite" finished-at="2020-10-29T22:06:53 IST" duration-ms="60064">
+  <suite started-at="2020-12-04T23:27:07 IST" name="Default suite" finished-at="2020-12-04T23:32:51 IST" duration-ms="343928">
     <groups>
     </groups>
-    <test started-at="2020-10-29T22:05:53 IST" name="Default test" finished-at="2020-10-29T22:06:53 IST" duration-ms="60064">
+    <test started-at="2020-12-04T23:27:07 IST" name="Default test" finished-at="2020-12-04T23:32:51 IST" duration-ms="343928">
       <class name="testCases.HomePageTest">
-        <test-method is-config="true" signature="initialize()[pri:0, instance:testCases.HomePageTest@75329a49]" started-at="2020-10-29T22:05:53 IST" name="initialize" finished-at="2020-10-29T22:06:19 IST" duration-ms="25838" status="PASS">
+        <test-method is-config="true" signature="initialize()[pri:0, instance:testCases.HomePageTest@1184ab05]" started-at="2020-12-04T23:27:07 IST" name="initialize" finished-at="2020-12-04T23:27:20 IST" duration-ms="12627" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initialize -->
-        <test-method signature="numberOfLinksInLeftSection()[pri:0, instance:testCases.HomePageTest@75329a49]" started-at="2020-10-29T22:06:19 IST" name="numberOfLinksInLeftSection" finished-at="2020-10-29T22:06:20 IST" duration-ms="577" status="PASS">
+        <test-method signature="numberOfLinksInLeftSection()[pri:0, instance:testCases.HomePageTest@1184ab05]" started-at="2020-12-04T23:27:20 IST" name="numberOfLinksInLeftSection" finished-at="2020-12-04T23:27:22 IST" duration-ms="1716" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- numberOfLinksInLeftSection -->
-        <test-method signature="numberOfLinksInRightSection()[pri:0, instance:testCases.HomePageTest@75329a49]" started-at="2020-10-29T22:06:20 IST" name="numberOfLinksInRightSection" finished-at="2020-10-29T22:06:20 IST" duration-ms="563" status="PASS">
+        <test-method signature="numberOfLinksInRightSection()[pri:0, instance:testCases.HomePageTest@1184ab05]" started-at="2020-12-04T23:27:22 IST" name="numberOfLinksInRightSection" finished-at="2020-12-04T23:27:23 IST" duration-ms="752" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- numberOfLinksInRightSection -->
-        <test-method signature="titleOfLinksRightSection()[pri:0, instance:testCases.HomePageTest@75329a49]" started-at="2020-10-29T22:06:20 IST" name="titleOfLinksRightSection" finished-at="2020-10-29T22:06:52 IST" duration-ms="32092" status="PASS">
+        <test-method signature="oneRoundTripWithoutDepDate()[pri:0, instance:testCases.HomePageTest@1184ab05]" started-at="2020-12-04T23:27:23 IST" name="oneRoundTripWithoutDepDate" finished-at="2020-12-04T23:28:36 IST" duration-ms="73101" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- oneRoundTripWithoutDepDate -->
+        <test-method signature="titleOfLinksRightSection()[pri:0, instance:testCases.HomePageTest@1184ab05]" started-at="2020-12-04T23:28:36 IST" name="titleOfLinksRightSection" finished-at="2020-12-04T23:29:07 IST" duration-ms="31259" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- titleOfLinksRightSection -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:testCases.HomePageTest@75329a49]" started-at="2020-10-29T22:06:52 IST" name="tearDown" finished-at="2020-10-29T22:06:53 IST" duration-ms="915" status="PASS">
+        <test-method signature="validateOfOneRoundTrip()[pri:0, instance:testCases.HomePageTest@1184ab05]" started-at="2020-12-04T23:29:07 IST" name="validateOfOneRoundTrip" finished-at="2020-12-04T23:30:26 IST" depends-on-methods="testCases.HomePageTest.oneRoundTripWithoutDepDate" duration-ms="78639" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validateOfOneRoundTrip -->
+        <test-method signature="departureTime_Stops_Airlines()[pri:0, instance:testCases.HomePageTest@1184ab05]" started-at="2020-12-04T23:30:26 IST" name="departureTime_Stops_Airlines" finished-at="2020-12-04T23:30:26 IST" depends-on-methods="testCases.HomePageTest.validateOfOneRoundTrip" duration-ms="577" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- departureTime_Stops_Airlines -->
+        <test-method signature="ValidateFilterResult(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testCases.HomePageTest@1184ab05]" started-at="2020-12-04T23:30:28 IST" name="ValidateFilterResult" data-provider="flightFilter" finished-at="2020-12-04T23:30:37 IST" depends-on-methods="testCases.HomePageTest.departureTime_Stops_Airlines" duration-ms="8990" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[IndiGo]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Kolkata]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Delhi]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[11am - 4pm]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[2 Stops]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ValidateFilterResult -->
+        <test-method signature="ValidateFilterResult(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testCases.HomePageTest@1184ab05]" started-at="2020-12-04T23:30:37 IST" name="ValidateFilterResult" data-provider="flightFilter" finished-at="2020-12-04T23:30:54 IST" depends-on-methods="testCases.HomePageTest.departureTime_Stops_Airlines" duration-ms="16638" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[GoAir]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Kolkata]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Delhi]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[9pm - 4am]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[1 Stops]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ValidateFilterResult -->
+        <test-method signature="ValidateFilterResult(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testCases.HomePageTest@1184ab05]" started-at="2020-12-04T23:30:54 IST" name="ValidateFilterResult" data-provider="flightFilter" finished-at="2020-12-04T23:31:11 IST" depends-on-methods="testCases.HomePageTest.departureTime_Stops_Airlines" duration-ms="16887" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[IndiGo]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Kolkata]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Delhi]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[11am - 4pm]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[0 Stop]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ValidateFilterResult -->
+        <test-method signature="ValidateFilterResult(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testCases.HomePageTest@1184ab05]" started-at="2020-12-04T23:31:11 IST" name="ValidateFilterResult" data-provider="flightFilter" finished-at="2020-12-04T23:31:28 IST" depends-on-methods="testCases.HomePageTest.departureTime_Stops_Airlines" duration-ms="17240" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[IndiGo]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Kolkata]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Delhi]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[11am - 4pm]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[1 Stops]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ValidateFilterResult -->
+        <test-method signature="ValidateFilterResult(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testCases.HomePageTest@1184ab05]" started-at="2020-12-04T23:31:28 IST" name="ValidateFilterResult" data-provider="flightFilter" finished-at="2020-12-04T23:31:45 IST" depends-on-methods="testCases.HomePageTest.departureTime_Stops_Airlines" duration-ms="17064" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[IndiGo]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Kolkata]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Delhi]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[4pm - 9pm]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[1 Stops]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ValidateFilterResult -->
+        <test-method signature="ValidateFilterResult(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testCases.HomePageTest@1184ab05]" started-at="2020-12-04T23:31:45 IST" name="ValidateFilterResult" data-provider="flightFilter" finished-at="2020-12-04T23:32:02 IST" depends-on-methods="testCases.HomePageTest.departureTime_Stops_Airlines" duration-ms="16953" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[GoAir]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Kolkata]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Delhi]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[4pm - 9pm]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[1 Stops]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ValidateFilterResult -->
+        <test-method signature="ValidateFilterResult(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testCases.HomePageTest@1184ab05]" started-at="2020-12-04T23:32:02 IST" name="ValidateFilterResult" data-provider="flightFilter" finished-at="2020-12-04T23:32:15 IST" depends-on-methods="testCases.HomePageTest.departureTime_Stops_Airlines" duration-ms="12634" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Air India]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Kolkata]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Delhi]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[4am - 11am]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[1 Stops]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ValidateFilterResult -->
+        <test-method signature="ValidateFilterResult(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testCases.HomePageTest@1184ab05]" started-at="2020-12-04T23:32:15 IST" name="ValidateFilterResult" data-provider="flightFilter" finished-at="2020-12-04T23:32:26 IST" depends-on-methods="testCases.HomePageTest.departureTime_Stops_Airlines" duration-ms="10993" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Air India]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Kolkata]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Delhi]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[4am - 11am]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[2 Stops]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ValidateFilterResult -->
+        <test-method signature="ValidateFilterResult(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testCases.HomePageTest@1184ab05]" started-at="2020-12-04T23:32:26 IST" name="ValidateFilterResult" data-provider="flightFilter" finished-at="2020-12-04T23:32:36 IST" depends-on-methods="testCases.HomePageTest.departureTime_Stops_Airlines" duration-ms="9621" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Air India]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Kolkata]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Delhi]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[4am - 11am]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[3 Stops]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ValidateFilterResult -->
+        <test-method signature="resetSortingPrice()[pri:0, instance:testCases.HomePageTest@1184ab05]" started-at="2020-12-04T23:32:36 IST" name="resetSortingPrice" finished-at="2020-12-04T23:32:36 IST" depends-on-methods="testCases.HomePageTest.ValidateFilterResult" duration-ms="810" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- resetSortingPrice -->
+        <test-method signature="flightBooking()[pri:0, instance:testCases.HomePageTest@1184ab05]" started-at="2020-12-04T23:32:36 IST" name="flightBooking" finished-at="2020-12-04T23:32:50 IST" depends-on-methods="testCases.HomePageTest.resetSortingPrice" duration-ms="13973" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[offer msg is validated expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: offer msg is validated expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:99)
+at org.testng.Assert.failNotEquals(Assert.java:1037)
+at org.testng.Assert.assertTrue(Assert.java:45)
+at testCases.HomePageTest.flightBooking(HomePageTest.java:329)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:132)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:599)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:174)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:822)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:147)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:764)
+at org.testng.TestRunner.run(TestRunner.java:585)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1218)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
+at org.testng.TestNG.runSuites(TestNG.java:1069)
+at org.testng.TestNG.run(TestNG.java:1037)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- flightBooking -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:testCases.HomePageTest@1184ab05]" started-at="2020-12-04T23:32:50 IST" name="tearDown" finished-at="2020-12-04T23:32:51 IST" duration-ms="963" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
