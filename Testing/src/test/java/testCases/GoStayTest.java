@@ -21,7 +21,6 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-
 import pageObjectModel.GoStay;
 import pageObjectModel.HomePage;
 import pageObjectModel.HotelSearch;
@@ -171,6 +170,11 @@ public class GoStayTest extends Base{
 		Assert.assertEquals(amenities, expectedAmenities);
 		hs.amenitiesShow().click();
 		List<WebElement> afterAmenities=hs.amenitiesList();
+		if(afterAmenities.size()==3)
+		{
+			JavascriptExecutor js=(JavascriptExecutor) driver;
+			js.executeScript("arguments[0].click()",hs.amenitiesShow());
+		}
 		Assert.assertEquals(38, afterAmenities.size());		
 	}
 	
@@ -226,8 +230,8 @@ public class GoStayTest extends Base{
 			}	
 		}
 		int size=re.sizeOfList(hs.filter(),"div");
-		SoftAssert soft=new SoftAssert();
-		soft.assertEquals(3, size);
+		//SoftAssert soft=new SoftAssert();
+		Assert.assertEquals(3, size);
 		System.out.println("filer result is :"+size);
 		try {
 			hs.clearFilter().click();

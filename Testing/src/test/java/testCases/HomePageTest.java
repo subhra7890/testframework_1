@@ -327,7 +327,7 @@ public class HomePageTest extends Base{
 		soft.assertEquals(actualList, expectedList);
 		bd.selectOffer("GOHDFC").click();
 		Assert.assertTrue(bd.alertText().isDisplayed(),"offer value is selected");
-		Assert.assertTrue(bd.alertText().getText().contains(offerMsg),"offer msg is validated");
+		Assert.assertTrue(bd.alertText().getText().contains("Congrats! Promo Discount has been applied."),"offer msg is validated");
 		bd.alertClick().click();
 		bd.promo().sendKeys("123456");
 		bd.promoApply().click();
