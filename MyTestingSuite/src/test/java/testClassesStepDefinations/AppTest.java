@@ -19,7 +19,7 @@ import org.testng.annotations.Test;
 
 import pageObjects.HealthcareSuccessPageObjects;
 import pageObjects.HomePageObjects;
-import resources.ReadExcelData;
+import resources.ReadWriteExcelData;
 import resources.base;
 
 public class AppTest extends base {
@@ -35,7 +35,7 @@ public class AppTest extends base {
 		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		driver.manage().window().maximize(); 
 		
-		ReadExcelData rdata= new ReadExcelData(getTestdataPath());
+		ReadWriteExcelData rdata= new ReadWriteExcelData(getTestdataPath());
 		driver.get(rdata.getCellData("HealthSuccessTest1", "HealthSuccessURL", 2));
 		
 		System.out.println("HealthSeccess App loaded ");

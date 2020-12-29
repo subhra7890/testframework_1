@@ -19,7 +19,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="con" path="org.testng.TESTNG_CONTAINER"/>
 	<classpathentry kind="lib" path="C:/jars/apache poi/dom4j-1.6.1.jar"/>
 	<classpathentry kind="lib" path="C:/jars/apache poi/poi-3.10-FINAL-20140208.jar"/>
 	<classpathentry kind="lib" path="C:/jars/apache poi/poi-examples-3.10-FINAL-20140208.jar"/>
@@ -29,5 +28,6 @@
 	<classpathentry kind="lib" path="C:/jars/apache poi/poi-scratchpad-3.10-FINAL-20140208.jar"/>
 	<classpathentry kind="lib" path="C:/jars/apache poi/stax-api-1.0.1.jar"/>
 	<classpathentry kind="lib" path="C:/jars/apache poi/xmlbeans-2.3.0.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

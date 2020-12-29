@@ -61,10 +61,10 @@ public class ExcelReadWriteUtilities {
           }
 
          // Constant variables Test Data path and Test Data file name
-          FileOutputStream fileOut = new FileOutputStream(Constant.Path_TestData + Constant.File_TestData);
-          ExcelWBook.write(fileOut);
-          fileOut.flush();
-          fileOut.close();
+//          FileOutputStream fileOut = new FileOutputStream(Constant.classPath_TestData + Constant.File_TestData);
+//          ExcelWBook.write(fileOut);
+//          fileOut.flush();
+//          fileOut.close();
 
       }
       catch(Exception e){

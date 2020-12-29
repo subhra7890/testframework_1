@@ -4,6 +4,7 @@ package resources;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -19,13 +20,21 @@ import org.openqa.selenium.edge.EdgeDriver;
 public class base {
 	public  WebDriver driver;
 	static Properties prop = new Properties();
-	
+	//InputStream fis = null;
 	public  static String getTestdataPath() throws IOException
 	{
-			FileInputStream fis=new FileInputStream("F:\\Eclipse_Workspace\\E2EProjectCucumber\\src\\main\\java\\resources\\data.properties");
+			FileInputStream fis=new FileInputStream("F:\\data\\testframework_1\\MyTestingSuite\\src\\main\\java\\resources\\data.properties");
 			prop.load(fis);
 			String testdataPath=prop.getProperty("testdata_XLPath");
 			return testdataPath;
+	}
+	
+	public static  String getDataFromProperty(String tDataName) throws IOException {
+		FileInputStream input=new FileInputStream("F:\\data\\testframework_1\\MyTestingSuite\\src\\main\\java\\resources\\data.properties");
+		prop.load(input);
+		String testdataValue=prop.getProperty(tDataName);
+		return testdataValue;
+		
 	}
 	
 	@SuppressWarnings("deprecation")

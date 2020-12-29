@@ -25,6 +25,11 @@ public class Listeners extends base implements ITestListener {
 		// TODO Auto-generated method stub
 		test.log(Status.PASS, "Seccessful");
 	}
+	public void onSkip(ITestResult result) {
+		// TODO Auto-generated method stub
+		test.log(Status.SKIP, "Skipped");
+		
+	}
 
 	public void onTestFailure(ITestResult result) {
 		
@@ -47,10 +52,13 @@ public class Listeners extends base implements ITestListener {
 			e.printStackTrace();
 		}
 	}
+	
+	
 
 	public void onFinish(ITestContext context) {
 		// TODO Auto-generated method stub
 		extent.flush();
+		
 		
 	}
 

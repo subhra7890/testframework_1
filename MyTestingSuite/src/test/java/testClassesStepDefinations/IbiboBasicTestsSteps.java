@@ -17,7 +17,7 @@ import org.testng.annotations.Test;
 
 import pageObjects.HomePageObjects;
 import pageObjects.HotelsPageObjects;
-import resources.ReadExcelData;
+import resources.ReadWriteExcelData;
 import resources.base;
 
 public class IbiboBasicTestsSteps extends base {
@@ -36,7 +36,7 @@ public class IbiboBasicTestsSteps extends base {
 	public void openHomePage() throws Exception {
 		
 		
-		ReadExcelData rdata = new ReadExcelData(getTestdataPath());
+		ReadWriteExcelData rdata = new ReadWriteExcelData(getTestdataPath());
 		//driver.get("https://goibibo.com");
 		driver.get(rdata.getCellData("IbiboBasicTestsSteps","goIBIBOurl", 2));
 		driver.manage().window().maximize();
@@ -67,7 +67,7 @@ public class IbiboBasicTestsSteps extends base {
 		
 		HomePageObjects HomePB = new HomePageObjects(driver);
 		HotelsPageObjects HotelsPB = new HotelsPageObjects(driver);
-		ReadExcelData rdata = new ReadExcelData(getTestdataPath());
+		ReadWriteExcelData rdata = new ReadWriteExcelData(getTestdataPath());
 		//driver.findElement(By.xpath("(//a[@href=\"/hotels/\"])[1]")).click();
 		HomePB.getHotelsMenuLink().click();
 		//driver.findElement(By.xpath("//h4[text()='International']")).click();
@@ -104,8 +104,9 @@ public class IbiboBasicTestsSteps extends base {
 	
 	
 	@AfterTest
-	public void closebrowser(){
-		//driver.quit();
+	public void closebrowser() throws InterruptedException{
+		Thread.sleep(3000);
+		driver.quit();
 		
 	}
 	

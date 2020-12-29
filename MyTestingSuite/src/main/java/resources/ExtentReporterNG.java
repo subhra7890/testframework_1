@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Properties;
 
 import org.testng.IReporter;
-
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 

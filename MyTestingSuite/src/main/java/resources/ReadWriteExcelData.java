@@ -1,17 +1,18 @@
 package resources;
 
-import org.apache.poi.ss.usermodel.DateUtil;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
- 
-import java.io.FileInputStream;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
-public class ReadExcelData {
+public class ReadWriteExcelData extends base{
 	
 	private static final int STRING = 0;
 	private static final int NUMERIC = 0;
@@ -23,11 +24,13 @@ public class ReadExcelData {
     public XSSFRow row = null;
     public XSSFCell cell = null;
  
-    public ReadExcelData(String xlFilePath) throws Exception
+    public ReadWriteExcelData(String xlFilePath) throws Exception
     {
         fis = new FileInputStream(xlFilePath);
         workbook = new XSSFWorkbook(fis);
         fis.close();
+        
+        //fos.close();
     }
  
 	public String getCellData(String sheetName, String colName, int rowNum)
@@ -80,5 +83,46 @@ public class ReadExcelData {
             	return "";
         }
     }
+	
+	//Method to write data on Excel 
+	@SuppressWarnings({ "deprecation", "resource" })
+	public void getWriteStringToExcel(int rownum, int colnum, String outdata) throws IOException{
+		//create an object of Workbook and pass the FileInputStream object into it to create a pipeline between the sheet and eclipse.
+		//FileInputStream fis = new FileInputStream("/MyTestingSuite/testData/TestOutput.xlsx");
+		//XSSFWorkbook workbook = new XSSFWorkbook(fis);
+	
+		XSSFSheet sheet = workbook.getSheet("TestData");
+		
+        Row row = sheet.createRow(rownum);
+		Cell cell = row.createCell(colnum);
+		
+		//cell.setCellType(CellType.STRING);
+		cell.setCellValue(outdata);
+		//FileOutputStream fos = new FileOutputStream(getDataFromProperty("testOutputExcel"));
+		FileOutputStream fos = new FileOutputStream(getDataFromProperty("testOutputExcel"));
+		workbook.write(fos);
+		fos.close();
+	
+	}
+	@SuppressWarnings("deprecation")
+	public void getWriteNumberToExcel(int rowNum, int colNum, double outnumData) throws IOException{
+		//create an object of Workbook and pass the FileInputStream object into it to create a pipeline between the sheet and eclipse.
+		//FileInputStream fis = new FileInputStream("/MyTestingSuite/testData/TestOutput.xlsx");
+		//XSSFWorkbook workbook = new XSSFWorkbook(fis);
+	
+		XSSFSheet sheet = workbook.getSheet("TestData");
+		
+        Row row = sheet.createRow(rowNum);
+		Cell cell = row.createCell(colNum);
+		
+		
+		//cell.setCellType(NUMERIC);
+		cell.setCellValue(outnumData);
+		//FileOutputStream fos = new FileOutputStream(getDataFromProperty("testOutputExcel"));
+		FileOutputStream fos = new FileOutputStream(getDataFromProperty("testOutputExcel"));
+		workbook.write(fos);
+		fos.close();
+	
+	}
 
 }

@@ -5,6 +5,7 @@
     <classes>
       <class name="testClassesStepDefinations.HealthcareSuccessTests">
         <methods>
+          <include name="requestProppsalStep_1_HelSuccess"/>
           <include name="preTest"/>
           <include name="requestProppsalStep_3_HelSuccess"/>
         </methods>

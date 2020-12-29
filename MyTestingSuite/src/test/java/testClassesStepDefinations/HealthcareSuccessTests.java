@@ -1,19 +1,16 @@
 package testClassesStepDefinations;
 
-import org.testng.annotations.Test;
 import java.awt.Robot;
 import java.awt.event.InputEvent;
 import java.io.IOException;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import pageObjects.HealthcareSuccessPageObjects;
-import pageObjects.HomePageObjects;
-import resources.ReadExcelData;
+import resources.ReadWriteExcelData;
 import resources.base;
 
 public class HealthcareSuccessTests extends base {
@@ -30,7 +27,7 @@ public class HealthcareSuccessTests extends base {
 	public void openHealthSuccessApp() throws IOException, Exception   {
 		
 		HealthcareSuccessPageObjects HelSucObjs= new HealthcareSuccessPageObjects(driver);
-		ReadExcelData rdata= new ReadExcelData(getTestdataPath());
+		ReadWriteExcelData rdata= new ReadWriteExcelData(getTestdataPath());
 		
 		 
 		driver.get(rdata.getCellData("HealthSuccessTest1", "HealthSuccessURL", 2));
@@ -51,7 +48,7 @@ public class HealthcareSuccessTests extends base {
 	@Test
 	public void requestProppsalStep_1_HelSuccess() throws Exception {
 		HealthcareSuccessPageObjects HelSucObjs= new HealthcareSuccessPageObjects(driver);
-		ReadExcelData rdata= new ReadExcelData(getTestdataPath());
+		ReadWriteExcelData rdata= new ReadWriteExcelData(getTestdataPath());
 		HelSucObjs.getWhatAreYourGoals_ChkBoxes().click();
 		Select orgDrpDwn= new Select(HelSucObjs.getTypeOfOrganization_drpdwn());
 		orgDrpDwn.selectByVisibleText(rdata.getCellData("HealthSuccessTest1", "typeOfOrganization_drpdwn", 2));
@@ -62,10 +59,10 @@ public class HealthcareSuccessTests extends base {
 	
 	}	
 	
-	@Test
+	@Test(invocationCount = 3)
 	public void requestProppsalStep_2_HelSuccess() throws Exception {
 		HealthcareSuccessPageObjects HelSucObjs= new HealthcareSuccessPageObjects(driver);
-		ReadExcelData rdata= new ReadExcelData(getTestdataPath());
+		ReadWriteExcelData rdata= new ReadWriteExcelData(getTestdataPath());
 		//HelSucObjs.getMarketingBudget_input().click();
 		HelSucObjs.getMarketingBudget_input().sendKeys(rdata.getCellData("HealthSuccessTest1", "marketingBudget_input", 2));
 		
@@ -83,15 +80,17 @@ public class HealthcareSuccessTests extends base {
 	@Test
 	public void requestProppsalStep_3_HelSuccess() throws Exception {
 		HealthcareSuccessPageObjects HelSucObjs= new HealthcareSuccessPageObjects(driver);
-		ReadExcelData rdata= new ReadExcelData(getTestdataPath());
+		ReadWriteExcelData rdata= new ReadWriteExcelData(getTestdataPath());
 		HelSucObjs.getWebsite().sendKeys(rdata.getCellData("HealthSuccessTest1", "website", 2));
 		HelSucObjs.getFirstName_input().sendKeys(rdata.getCellData("HealthSuccessTest1", "firstName_input", 2));
 		HelSucObjs.getLastName_input().sendKeys(rdata.getCellData("HealthSuccessTest1", "lastName_input", 2));
 		HelSucObjs.getPhone_input().sendKeys(rdata.getCellData("HealthSuccessTest1", "phone_input", 2));
 		HelSucObjs.getEmail_input().sendKeys(rdata.getCellData("HealthSuccessTest1", "email_input", 2));
-		HelSucObjs.getLetsTlk_submit_btn().click();
+		//HelSucObjs.getLetsTlk_submit_btn().click();
 		
 		System.out.println("Step 3 finished");
+		Thread.sleep(3000);
+		driver.quit();
 	
 	}
 	

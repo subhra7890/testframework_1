@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "https://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="https://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 <title>TestNG Report</title>
@@ -8,14 +8,81 @@
 <body>
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
-<tr><th colspan="8">Default suite</th></tr>
-<tr><td><a href="#t0">Default test</a></td><td class="num">4</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">69,998</td><td></td><td></td></tr>
+<tr><th colspan="8">Suite</th></tr>
+<tr><td><a href="#t0">Test2</a></td><td class="num">5</td><td class="num">0</td><td class="num">0</td><td class="num attn">2</td><td class="num">53,338</td><td></td><td></td></tr>
+<tr class="stripe"><td><a href="#t1">Test3</a></td><td class="num">4</td><td class="num">0</td><td class="num">0</td><td class="num attn">2</td><td class="num">46,358</td><td></td><td></td></tr>
+<tr><th>Total</th><th class="num">9</th><th class="num">0</th><th class="num">0</th><th class="num attn">4</th><th class="num">99,696</th><th colspan="2"></th></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="4">testClassesStepDefinations.HealthcareSuccessTests</td><td><a href="#m0">openHealthSuccessApp</a></td><td rowspan="1">1606415414626</td><td rowspan="1">35969</td></tr><tr class="passedeven"><td><a href="#m1">requestProppsalStep_1_HelSuccess</a></td><td rowspan="1">1606415450654</td><td rowspan="1">1233</td></tr><tr class="passedeven"><td><a href="#m2">requestProppsalStep_2_HelSuccess</a></td><td rowspan="1">1606415451889</td><td rowspan="1">1768</td></tr><tr class="passedeven"><td><a href="#m3">requestProppsalStep_3_HelSuccess</a></td><td rowspan="1">1606415453671</td><td rowspan="1">2119</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Test2 &#8212; failed</th></tr><tr class="failedeven"><td rowspan="2">testClassesStepDefinations.IbiboBasicTestsSteps</td><td><a href="#m0">checkHotelLink</a></td><td rowspan="1">1607595374797</td><td rowspan="1">7234</td></tr><tr class="failedeven"><td><a href="#m1">checkRoundTrip</a></td><td rowspan="1">1607595384938</td><td rowspan="1">1753</td></tr><tr><th colspan="4">Test2 &#8212; passed</th></tr><tr class="passedeven"><td rowspan="5">testClassesStepDefinations.IbiboBasicTestsSteps</td><td><a href="#m2">checkCablink</a></td><td rowspan="1">1607595388790</td><td rowspan="1">174</td></tr><tr class="passedeven"><td><a href="#m3">getTitleOfPage</a></td><td rowspan="1">1607595373796</td><td rowspan="1">56</td></tr><tr class="passedeven"><td><a href="#m4">initialize</a></td><td rowspan="1">1607595341589</td><td rowspan="1">8396</td></tr><tr class="passedeven"><td><a href="#m5">openHomePage</a></td><td rowspan="1">1607595350035</td><td rowspan="1">23751</td></tr><tr class="passedeven"><td><a href="#m6">validateLogoDisplayed</a></td><td rowspan="1">1607595373864</td><td rowspan="1">922</td></tr></tbody>
+<tbody id="t1"><tr><th colspan="4">Test3 &#8212; failed</th></tr><tr class="failedeven"><td rowspan="2">testClassesStepDefinations.HealthcareSuccessTests</td><td><a href="#m7">requestProppsalStep_2_HelSuccess</a></td><td rowspan="2">1607595434749</td><td rowspan="2">3188</td></tr><tr class="failedeven"><td><a href="#m8">requestProppsalStep_2_HelSuccess</a></td></tr><tr><th colspan="4">Test3 &#8212; passed</th></tr><tr class="passedeven"><td rowspan="4">testClassesStepDefinations.HealthcareSuccessTests</td><td><a href="#m9">openHealthSuccessApp</a></td><td rowspan="1">1607595405224</td><td rowspan="1">21567</td></tr><tr class="passedeven"><td><a href="#m10">requestProppsalStep_1_HelSuccess</a></td><td rowspan="1">1607595426794</td><td rowspan="1">2104</td></tr><tr class="passedeven"><td><a href="#m11">requestProppsalStep_2_HelSuccess</a></td><td rowspan="1">1607595428903</td><td rowspan="1">1383</td></tr><tr class="passedeven"><td><a href="#m12">requestProppsalStep_3_HelSuccess</a></td><td rowspan="1">1607595438599</td><td rowspan="1">4895</td></tr></tbody>
 </table>
-<h2>Default test</h2><h3 id="m0">testClassesStepDefinations.HealthcareSuccessTests#openHealthSuccessApp</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">testClassesStepDefinations.HealthcareSuccessTests#requestProppsalStep_1_HelSuccess</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">testClassesStepDefinations.HealthcareSuccessTests#requestProppsalStep_2_HelSuccess</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m3">testClassesStepDefinations.HealthcareSuccessTests#requestProppsalStep_3_HelSuccess</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Test2</h2><h3 id="m0">testClassesStepDefinations.IbiboBasicTestsSteps#checkHotelLink</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.ClassCastException: org.openqa.selenium.remote.RemoteWebElement cannot be cast to org.openqa.selenium.By
+	at testClassesStepDefinations.IbiboBasicTestsSteps.checkHotelLink(IbiboBasicTestsSteps.java:79)
+	at java.util.ArrayList.forEach(ArrayList.java:1257)
+... Removed 27 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">testClassesStepDefinations.IbiboBasicTestsSteps#checkRoundTrip</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
+  (Session info: chrome=87.0.4280.88)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#stale_element_reference
+Build info: version: &apos;4.0.0-alpha-7&apos;, revision: &apos;de8579b6d5&apos;
+System info: host: &apos;LAPTOP-G1AJ66R1&apos;, ip: &apos;192.168.43.113&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_212&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 87.0.4280.88, chrome: {chromedriverVersion: 86.0.4240.22 (398b0743353ff..., userDataDir: C:\Users\91970\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:50449}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: 349cfd12db1e37fa8cfb1c5fa237cede
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:196)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:129)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:167)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:123)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:501)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:238)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:79)
+	at testClassesStepDefinations.IbiboBasicTestsSteps.checkRoundTrip(IbiboBasicTestsSteps.java:93)
+	at java.util.ArrayList.forEach(ArrayList.java:1257)
+... Removed 31 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">testClassesStepDefinations.IbiboBasicTestsSteps#checkCablink</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">testClassesStepDefinations.IbiboBasicTestsSteps#getTitleOfPage</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">testClassesStepDefinations.IbiboBasicTestsSteps#initialize</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m5">testClassesStepDefinations.IbiboBasicTestsSteps#openHomePage</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m6">testClassesStepDefinations.IbiboBasicTestsSteps#validateLogoDisplayed</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Test3</h2><h3 id="m7">testClassesStepDefinations.HealthcareSuccessTests#requestProppsalStep_2_HelSuccess</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.ElementNotInteractableException: element not interactable
+  (Session info: chrome=87.0.4280.88)
+Build info: version: &apos;4.0.0-alpha-7&apos;, revision: &apos;de8579b6d5&apos;
+System info: host: &apos;LAPTOP-G1AJ66R1&apos;, ip: &apos;192.168.43.113&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_212&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 87.0.4280.88, chrome: {chromedriverVersion: 86.0.4240.22 (398b0743353ff..., userDataDir: C:\Users\91970\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:50564}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: a6cf655fe720d90a67d838612370da02
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:196)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:129)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:167)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:123)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:501)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:238)
+	at org.openqa.selenium.remote.RemoteWebElement.sendKeys(RemoteWebElement.java:109)
+	at testClassesStepDefinations.HealthcareSuccessTests.requestProppsalStep_2_HelSuccess(HealthcareSuccessTests.java:70)
+	at java.util.ArrayList.forEach(ArrayList.java:1257)
+... Removed 31 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m8">testClassesStepDefinations.HealthcareSuccessTests#requestProppsalStep_2_HelSuccess</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.ElementNotInteractableException: element not interactable
+  (Session info: chrome=87.0.4280.88)
+Build info: version: &apos;4.0.0-alpha-7&apos;, revision: &apos;de8579b6d5&apos;
+System info: host: &apos;LAPTOP-G1AJ66R1&apos;, ip: &apos;192.168.43.113&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_212&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 87.0.4280.88, chrome: {chromedriverVersion: 86.0.4240.22 (398b0743353ff..., userDataDir: C:\Users\91970\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:50564}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: a6cf655fe720d90a67d838612370da02
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:196)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:129)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:167)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:123)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:501)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:238)
+	at org.openqa.selenium.remote.RemoteWebElement.sendKeys(RemoteWebElement.java:109)
+	at testClassesStepDefinations.HealthcareSuccessTests.requestProppsalStep_2_HelSuccess(HealthcareSuccessTests.java:75)
+	at java.util.ArrayList.forEach(ArrayList.java:1257)
+... Removed 31 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m9">testClassesStepDefinations.HealthcareSuccessTests#openHealthSuccessApp</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m10">testClassesStepDefinations.HealthcareSuccessTests#requestProppsalStep_1_HelSuccess</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m11">testClassesStepDefinations.HealthcareSuccessTests#requestProppsalStep_2_HelSuccess</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m12">testClassesStepDefinations.HealthcareSuccessTests#requestProppsalStep_3_HelSuccess</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

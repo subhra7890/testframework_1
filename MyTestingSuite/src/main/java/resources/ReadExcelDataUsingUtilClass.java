@@ -5,7 +5,7 @@ public class ReadExcelDataUsingUtilClass
     public static void main(String args[]) throws Exception
     {
         //ExcelApiTest eat = new ExcelApiTest("/Volumes/Krishna/Jar Files/poi-3.16-beta1/TestData.xlsx"); F:\data       
-        ReadExcelData eat = new ReadExcelData("F:\\data\\TestData.xlsx");
+        ReadWriteExcelData eat = new ReadWriteExcelData("F:\\data\\TestData.xlsx");
         
         	System.out.println("UserName: " +eat.getCellData("Credentials","UserName",4));
             System.out.println("PassWord: " +eat.getCellData("Credentials","PassWord",4));

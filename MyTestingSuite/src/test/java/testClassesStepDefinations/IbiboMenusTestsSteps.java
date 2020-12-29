@@ -57,7 +57,9 @@ public class IbiboMenusTestsSteps extends base{
 	}
 	
 	@AfterTest
-	public void afterIbibomenuValidation() {
+	public void afterIbibomenuValidation() throws InterruptedException {
 		System.out.println("All Menus are working");
+		Thread.sleep(3000);
+		driver.quit();
 	}
 }
